@@ -15,9 +15,11 @@ function Header() {
     <>
 
         <div className="header">
+          <div className="headercontainer">
+
             <div className="headerlist">
 
-                <div className="headerlistitem">
+                <div className="headerlistitem active">
 
                     
                     <FontAwesomeIcon icon={faBed}/>
@@ -52,6 +54,7 @@ function Header() {
                     <span>Airport Taxi</span>
                 </div>
             </div>
+          </div>
         </div>
             
 
