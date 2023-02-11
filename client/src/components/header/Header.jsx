@@ -99,7 +99,8 @@ function Header() {
                        <span onClick = {()=>setopendate(!opendate)} className="headersearchtext">{` from ${format(date[0].startDate, 'MM/dd/yyyy')} to ${(format(date[0].endDate, 'MM/dd/yyy'))}`}</span>
 
 
-                        // by default the date will be hidden by the help of the useState function.
+                        {/* // by default the date will be hidden by the help of the useState function. */}
+
                       {opendate && <DateRange
                         editableDateInputs={true}
                         onChange={item => setDate([item.selection])}
@@ -114,6 +115,52 @@ function Header() {
                         <FontAwesomeIcon icon ={faBed} className ='headericon'/>
 
                        <span className="headersearchtext">{`${options.adult} adult ${options.children} children ${options.room} room` }</span>
+
+                       <div className="options">
+
+                        <div className="optionitem">
+                            <span className="optiontext">Adult</span>
+
+                            <div className="optioncounter">
+                                <button className="optioncounterbtn" >-</button>
+                                <span className="optioncounternum">1</span>
+                                <button className="optioncounterbtn">+</button>
+                            </div>
+
+                        </div>
+
+
+                        <div className="optionitem">
+                            <span className="optiontext">Children</span>
+
+                            <div className="optioncounter">
+
+                                <button className="optioncounterbtn">-</button>
+
+                                <span className="optioncounternum">1</span>
+                                <button className="optioncounterbtn">+</button>
+
+                            </div>
+                        </div>
+
+                        
+                        <div className="optionitem">
+                            <span className="optiontext">Room</span>
+
+                            <div className="optioncounter">
+                            
+                                <button className="optioncounterbtn">-</button>
+                                <span className="optioncounternum">1</span>
+                                <button className="optioncounterbtn">+</button>
+                            </div>
+
+                        </div>
+
+
+
+
+
+                       </div>
 
                     </div>
 
