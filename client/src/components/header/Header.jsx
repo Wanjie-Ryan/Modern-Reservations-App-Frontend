@@ -26,9 +26,38 @@ function Header() {
     const [options, setoptions] = useState({
 
         adult:1,
-        children:1,
+        children:0,
         room:1 
     })
+
+
+    const handleOption =(name, operation)=>{
+
+        // setoptions state is initiated and the previous state is initialized which is adult:1, children:0, room:1
+        setoptions(prev=>{
+            return{
+
+                ...prev,
+                [name]:operation === 'i'?options[name] +1 : options[name] -1
+            }
+        })
+
+
+
+        // setoptions(prev => {
+        //     let newValue = prev[name];
+        //     if (operation === 'i') {
+        //       newValue += 1;
+        //     } else {
+        //       newValue -= 1;
+        //     }
+        //     return {
+        //       ...prev,
+        //       [name]: newValue
+        //     };
+        //   });
+
+    }
 
 
   return (
@@ -114,17 +143,20 @@ function Header() {
 
                         <FontAwesomeIcon icon ={faBed} className ='headericon'/>
 
-                       <span className="headersearchtext">{`${options.adult} adult ${options.children} children ${options.room} room` }</span>
+                       <span className="headersearchtext" onClick ={()=>setopenoptions(!openoptions)}>{`${options.adult} adult ${options.children} children ${options.room} room` }</span>
 
-                       <div className="options">
+
+                       {openoptions && <div className="options">
 
                         <div className="optionitem">
                             <span className="optiontext">Adult</span>
 
                             <div className="optioncounter">
-                                <button className="optioncounterbtn" >-</button>
-                                <span className="optioncounternum">1</span>
-                                <button className="optioncounterbtn">+</button>
+                                <button className="optioncounterbtn" 
+                                disabled={options.adult <=1}
+                                onClick={()=>handleOption('adult', 'd')} >-</button>
+                                <span className="optioncounternum">{options.adult}</span>
+                                <button className="optioncounterbtn" onClick ={()=>handleOption('adult', 'i')}>+</button>
                             </div>
 
                         </div>
@@ -135,10 +167,13 @@ function Header() {
 
                             <div className="optioncounter">
 
-                                <button className="optioncounterbtn">-</button>
+                                <button className="optioncounterbtn" 
+                                disabled={options.children <1}
 
-                                <span className="optioncounternum">1</span>
-                                <button className="optioncounterbtn">+</button>
+                                onClick={()=>handleOption('children', 'd')} >-</button>
+
+                                <span className="optioncounternum">{options.children}</span>
+                                <button className="optioncounterbtn" onClick ={()=>handleOption('children', 'i')}>+</button>
 
                             </div>
                         </div>
@@ -149,9 +184,11 @@ function Header() {
 
                             <div className="optioncounter">
                             
-                                <button className="optioncounterbtn">-</button>
-                                <span className="optioncounternum">1</span>
-                                <button className="optioncounterbtn">+</button>
+                                <button className="optioncounterbtn" 
+                                disabled ={options.room <=1}
+                                onClick={()=>handleOption('room', 'd')}>-</button>
+                                <span className="optioncounternum">{options.room}</span>
+                                <button className="optioncounterbtn" onClick={()=>handleOption('room', 'i')}>+</button>
                             </div>
 
                         </div>
@@ -161,7 +198,7 @@ function Header() {
 
 
                        </div>
-
+                    }
                     </div>
 
 
