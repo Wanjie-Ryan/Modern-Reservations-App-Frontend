@@ -21,6 +21,14 @@
 
 }
 
+
+.headercontainer.listmode{
+
+    margin:20px 0px 0px 0px;
+
+
+}
+
 .headerlist{
 
     display:flex;

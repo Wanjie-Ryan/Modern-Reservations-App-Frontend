@@ -8,7 +8,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import {format} from 'date-fns';
 //transforms the date function into readable strings
 
-function Header() {
+function Header({type}) {
 
 
 
@@ -65,7 +65,10 @@ function Header() {
     <>
 
         <div className="header">
-          <div className="headercontainer">
+
+            {/* // if type is list then classname is headercontainer listmode, otherwise the classname is headercontainer */}
+
+          <div className = {type ==='list'? 'headercontainer listmode': 'headercontainer'}>
 
             <div className="headerlist">
 
@@ -105,7 +108,11 @@ function Header() {
                 </div>
             </div>
 
-                <h1 className="headertitle">A lifetime of discounts? It's Genius</h1>
+
+               { 
+               type !== 'list' &&
+               <>
+               <h1 className="headertitle">A lifetime of discounts? It's Genius</h1>
 
                 <p className="headerdesc">Get rewarded for your travels - unlock instant savings of 10% or more with a free Rawa account</p>
 
@@ -213,6 +220,9 @@ function Header() {
 
 
                 </div>
+
+             </>
+            }
           </div>
         </div>
             
