@@ -6,7 +6,7 @@ import Featured from "../../components/featured/featured";
 import Propertylist from "../../components/propertylist/propertylist";
 import Featuredproperties from '../../components/featuredproperties/fproperties';
 import MailList from '../../components/maillist/maillist';
-
+import Footer from '../../components/footer/footer';
 
 const Home = () => {
   return (
@@ -28,6 +28,8 @@ const Home = () => {
           <Featuredproperties/>
 
           <MailList/>
+
+          <Footer/>
           
 
 
