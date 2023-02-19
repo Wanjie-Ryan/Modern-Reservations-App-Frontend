@@ -19,7 +19,7 @@ function propertylist() {
            <div className="plisttitles">
 
                 <h1>Hotels</h1>
-                <h1>233 Hotels</h1>
+                <h1>2331 Hotels</h1>
 
 
            </div>
@@ -66,7 +66,7 @@ function propertylist() {
            <div className="plisttitles">
 
                 <h1>Villas</h1>
-                <h1>233 Hotels</h1>
+                <h1>2331 Hotels</h1>
 
 
            </div>
@@ -82,7 +82,7 @@ function propertylist() {
            <div className="plisttitles">
 
                 <h1>Cabins</h1>
-                <h1>233 Hotels</h1>
+                <h1>2331 Hotels</h1>
 
 
            </div>

@@ -4,6 +4,9 @@ import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
 import Featured from "../../components/featured/featured";
 import Propertylist from "../../components/propertylist/propertylist";
+import Featuredproperties from '../../components/featuredproperties/fproperties';
+
+
 
 const Home = () => {
   return (
@@ -20,6 +23,9 @@ const Home = () => {
 
           <Propertylist/>
 
+          <h1 className="hometitle">Home guests love</h1>
+
+          <Featuredproperties/>
           
 
 
