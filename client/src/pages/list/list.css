@@ -1,0 +1,38 @@
+.listcontainer{
+
+    display:flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.listwrapper{
+
+    width:100%;
+    max-width: 1024px;
+    display:flex;
+    gap:20px;
+}
+
+.listsearch{
+    flex:1;
+    background-color: #febb02;
+    padding:10px;
+    border-radius:10px;
+    position: sticky;
+    top:10px;
+
+    /* the search component will retain its position even when scrolling */
+}
+
+.lstitle{
+
+    font-size: 20px;
+    color:#555;
+    margin-bottom: 10px;
+}
+
+
+
+.listresult{
+    flex:3;
+}
