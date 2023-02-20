@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import './header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faBed, faPlane, faCar, faTaxi, faCalendarDays} from '@fortawesome/free-solid-svg-icons'
@@ -56,6 +57,19 @@ function Header({type}) {
         //       [name]: newValue
         //     };
         //   });
+
+    }
+
+    // navigate is used to navigate users to different pages 
+
+    const navigate = useNavigate()
+
+    const [destination, setdestination] = useState('')
+
+
+    const Handlesearch =()=>{
+
+        navigate('/hotels', {state: {destination, date, options }})
 
     }
 
@@ -124,7 +138,7 @@ function Header({type}) {
 
                         <FontAwesomeIcon icon ={faBed} className ='headericon'/>
 
-                        <input type ='text' placeholder='where are you going?' className='headersearchinput'/>
+                        <input type ='text' placeholder='where are you going?' className='headersearchinput' onChange ={(e)=>setdestination(e.target.value)}/>
 
                     </div>
 
@@ -211,7 +225,7 @@ function Header({type}) {
 
                     <div className="headersearchitem">
 
-                       <button className="headerbtn">Search</button>
+                       <button className="headerbtn" onClick ={Handlesearch} >Search</button>
 
                     </div>
 

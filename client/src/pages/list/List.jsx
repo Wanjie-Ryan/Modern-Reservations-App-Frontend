@@ -2,10 +2,17 @@ import React from 'react'
 import Navbar from '../../components/navbar/Navbar'
 import Header from '../../components/header/Header'
 import './list.css'
-
+import {useLocation} from 'react-router-dom';
 
 
 function List() {
+
+  const location = useLocation()
+  
+  // console.log(location)
+  // all the data from the search bar in the home page will be carried to this page as an object
+
+
 
 
 
