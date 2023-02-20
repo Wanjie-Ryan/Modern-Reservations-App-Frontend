@@ -36,3 +36,35 @@
 .listresult{
     flex:3;
 }
+
+.lsitem{
+
+    display:flex;
+    flex-direction: column;
+    gap:5px;
+    margin-bottom: 10px;
+
+}
+
+.lsitem>label{
+
+    font-size: 12px;
+}
+
+.lsitem>input{
+
+    height:30px;
+    border:none;
+    padding:5px;
+}
+
+.lsitem>span{
+
+    height:30px;
+    padding:5px;
+    background-color:white;
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+
+}
