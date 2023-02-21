@@ -1,0 +1,38 @@
+.hotelcontainer{
+
+    display:flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.hotelwrapper{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+
+
+.hotelimagewrapper{
+    
+    width:33%; 
+}
+
+.img{
+
+    width:100%;
+    object-fit: cover;
+}
+
+.hoteltitle{
+
+    font-size: 24px;
+}
+
+.hoteladdress{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap:10px;
+}

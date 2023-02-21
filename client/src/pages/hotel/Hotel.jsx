@@ -64,7 +64,7 @@ function Hotel() {
 
               {photos.map(photo=>(
                 <div className="hotelimagewrapper">
-                  <img src={photo.src} className ='img'/>
+                  <img src={photo.src} alt ='' className ='img'/>
                 </div>
 
               ))}
