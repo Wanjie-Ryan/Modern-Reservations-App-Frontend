@@ -66,64 +66,70 @@ function List() {
 
                 <label>Options</label>
 
-                <div className="lsoptionitem">
+                  <div className="isoptions">
 
-                  <span className="lsoptiontext">
-                    Min price <small>per night</small>
-                  </span>
 
-                  <input type='number' className="ispotioninput" />
+                    <div className="lsoptionitem">
 
+                      <span className="lsoptiontext">
+                        Min price <small>per night</small>
+                      </span>
+
+                      <input type='number' className="ispotioninput" />
+
+
+                    </div>
+
+
+                    <div className="lsoptionitem">
+
+                      <span className="lsoptiontext">
+                        Max price <small>per night</small>
+                      </span>
+
+                      <input type='number' className="ispotioninput" />
+
+
+                    </div>
+
+                    <div className="lsoptionitem">
+
+                      <span className="lsoptiontext">
+                        Adult 
+                      </span>
+
+                      <input type='number'min ={1} className="ispotioninput" placeholder ={options.adult}/>
+
+
+                    </div>
+
+                    <div className="lsoptionitem">
+
+                      <span className="lsoptiontext">
+                        Children 
+                      </span>
+
+                      <input type='number' min ={0} className="ispotioninput" placeholder ={options.children}/>
+
+
+                    </div>
+
+                    <div className="lsoptionitem">
+
+                      <span className="lsoptiontext">
+                        Room 
+                      </span>
+
+                      <input type='number' min ={1} className="ispotioninput" placeholder ={options.room} />
+
+
+                    </div>
+
+                  </div>
 
                 </div>
 
-
-                <div className="lsoptionitem">
-
-                  <span className="lsoptiontext">
-                    Max price <small>per night</small>
-                  </span>
-
-                  <input type='number' className="ispotioninput" />
-
-
-                </div>
-
-                <div className="lsoptionitem">
-
-                  <span className="lsoptiontext">
-                    Adult 
-                  </span>
-
-                  <input type='number'min ={1} className="ispotioninput" placeholder ={options.adult}/>
-
-
-                </div>
-
-                <div className="lsoptionitem">
-
-                  <span className="lsoptiontext">
-                    Children 
-                  </span>
-
-                  <input type='number' min ={0} className="ispotioninput" placeholder ={options.children}/>
-
-
-                </div>
-
-                <div className="lsoptionitem">
-
-                  <span className="lsoptiontext">
-                    Room 
-                  </span>
-
-                  <input type='number' min ={1} className="ispotioninput" placeholder ={options.room} />
-
-
-                </div>
-
-              </div>
-
+                <button>Search</button>
 
             </div>
 
