@@ -1,15 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './hotel.css'
 import Navbar from '../../components/navbar/Navbar'
 import Header from '../../components/header/Header'
 import Mail from '../../components/maillist/maillist'
 import Footer from '../../components/footer/footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faLocationDot} from '@fortawesome/free-solid-svg-icons'
+import {faLocationDot, faCircleXmark, faCircleArrowLeft, faCircleArrowRight} from '@fortawesome/free-solid-svg-icons'
 
 
 
 function Hotel() {
+
+
+  const [slideindex, setslideindex] = useState(0)
+  const [open, setopen] = useState(false)
 
 
   const photos = [
@@ -34,6 +38,32 @@ function Hotel() {
   ];
 
 
+  const Handleopen =(i) =>{
+    setopen(true)
+    setslideindex(i)
+  }
+
+  const handlemove = (direction)=>{
+
+    let newslideindex
+
+    if(direction === 'l'){
+
+      newslideindex = slideindex === 0 ? 5 : slideindex-1
+
+    }
+    else{
+
+      newslideindex = slideindex === 5? 0 : slideindex+1
+    }
+
+    setslideindex(newslideindex)
+  }
+
+  
+  
+
+
   return (
 
     <>
@@ -45,6 +75,21 @@ function Hotel() {
 
 
       <div className='hotelcontainer'>
+
+        {open && <div className='slider'>
+
+
+          <FontAwesomeIcon icon = {faCircleXmark} className ='close' onClick = {()=> setopen(false)}/>
+          <FontAwesomeIcon icon = {faCircleArrowLeft} className ='arrow' onClick={()=>{handlemove('l')}}/>
+
+          <div className="sliderwrapper">
+            <img src={photos[slideindex].src} alt="" className="sliderimg" />
+          </div>
+          <FontAwesomeIcon icon = {faCircleArrowRight} className ='arrow' onClick={()=>{handlemove('r')}}/>
+
+
+        </div>}
+
         <div className="hotelwrapper">
           <button className="booknow">Reserve or Book Now!</button>
           <h1 className="hoteltitle">Grand Hotel</h1>
@@ -65,11 +110,12 @@ function Hotel() {
 
             <div className="hotelimages">
 
-              {photos.map(photo=>(
+              {photos.map((photo,i)=>(
                 <div className="hotelimagewrapper">
-                  <img src={photo.src} alt ='' className ='img'/>
+                  <img onClick ={()=>Handleopen(i)}  src={photo.src} alt ='' className ='img'/>
                 </div>
 
+                  //whenever we click an image  we update our state and give its index
               ))}
 
             </div>
