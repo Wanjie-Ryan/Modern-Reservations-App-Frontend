@@ -2,6 +2,8 @@ import React from 'react'
 import './hotel.css'
 import Navbar from '../../components/navbar/Navbar'
 import Header from '../../components/header/Header'
+import Mail from '../../components/maillist/maillist'
+import Footer from '../../components/footer/footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faLocationDot} from '@fortawesome/free-solid-svg-icons'
 
@@ -111,6 +113,9 @@ function Hotel() {
               </div>
 
             </div>
+
+                <Mail/>
+                <Footer/>
 
 
 

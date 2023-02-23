@@ -69,3 +69,65 @@
     color:#008009;
     font-weight: 500;
 }
+
+.hoteldetails{
+
+    display:flex;
+    justify-content: space-between;
+    gap:20px;
+    margin-top: 20px;
+}
+
+.hoteldetailstext{
+
+    flex:3;
+}
+
+.hoteldesc{
+
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.hoteldetailsprice{
+
+    flex:1;
+    background-color: #ebf3ff;
+    display:flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+
+.hoteldetailsprice>h1{
+
+    font-size: 18px;
+    color:#555;
+}
+
+
+.hoteldetailsprice>span{
+
+    font-size: 14px;
+    
+}
+
+.hoteldetailsprice>h2{
+
+    font-weight: 300;
+    
+}
+
+.hoteldetailsprice>button{
+
+    border:none;
+    padding:10px 20px;
+    background-color: #0071c2;
+    color:white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+
+
