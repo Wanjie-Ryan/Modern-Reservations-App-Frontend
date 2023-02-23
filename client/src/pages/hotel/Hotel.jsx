@@ -44,6 +44,7 @@ function Hotel() {
 
       <div className='hotelcontainer'>
         <div className="hotelwrapper">
+          <button className="booknow">Reserve or Book Now!</button>
           <h1 className="hoteltitle">Grand Hotel</h1>
           <div className="hoteladdress">
 
