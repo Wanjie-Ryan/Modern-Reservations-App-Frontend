@@ -5,7 +5,7 @@ const createError = require('../utils/error')
 
 // CREATING A HOTEL
 
-const createhotel = async(req, res)=>{
+const createhotel = async(req, res, next)=>{
 
     try{
 
@@ -17,7 +17,9 @@ const createhotel = async(req, res)=>{
 
     catch(error){
 
-        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+        // res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+
+        next(err)
     }
 
 }
@@ -26,7 +28,7 @@ const createhotel = async(req, res)=>{
     //UPDATE A HOUSE    
 
 
-    const updatehotel = async(req, res)=>{
+    const updatehotel = async(req, res, next)=>{
 
         try{
 
@@ -49,7 +51,8 @@ const createhotel = async(req, res)=>{
 
         catch(error){
 
-            res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(error)
+            // res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(error)
+            next(err)
         }
 
 
@@ -58,7 +61,7 @@ const createhotel = async(req, res)=>{
 
     //DELETE A HOUSE
 
-    const deletehotel = async(req, res)=>{
+    const deletehotel = async(req, res,next)=>{
 
         try{
 
@@ -78,7 +81,9 @@ const createhotel = async(req, res)=>{
 
         catch(error){
 
-            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+            // res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+
+            next(err)
         }
 
     }
@@ -86,7 +91,7 @@ const createhotel = async(req, res)=>{
 
     //getting single hotel
 
-    const singlehotel = async(req, res)=>{
+    const singlehotel = async(req, res, next)=>{
 
         try{
 
@@ -105,7 +110,8 @@ const createhotel = async(req, res)=>{
 
         catch(error){
 
-            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+            // res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+            next(err)
 
         }
     }
