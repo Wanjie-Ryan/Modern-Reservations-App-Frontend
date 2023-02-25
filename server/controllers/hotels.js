@@ -59,7 +59,74 @@ const createhotel = async(req, res)=>{
 
     const deletehotel = async(req, res)=>{
 
+        try{
+
         
+            const {id:hotelID} = req.params
+
+            const hotel = await hotelmodel.findByIdAndDelete({_id:hotelID} )
+
+            if(!hotel){
+
+                res.status(StatusCodes.NOT_FOUND).json({msg: `Hotel with the Id ${hotelID} cannot be not found`})
+            }
+
+            res.status(StatusCodes.OK).json({msg:'hotel has been deleted.'})
+
+        }
+
+        catch(error){
+
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+        }
+
+    }
+
+
+    //getting single hotel
+
+    const singlehotel = async(req, res)=>{
+
+        try{
+
+            const {id:hotelID} = req.params
+            
+            const hotel = await hotelmodel.findById({_id:hotelID})
+
+            if(!hotel){
+
+                res.status(StatusCodes.NOT_FOUND).json({msg:`Hotel with id ${hotelID} cannot be not found`})
+            }
+
+            res.status(StatusCodes.OK).json({hotel})
+
+        }
+
+        catch(error){
+
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+
+        }
+    }
+
+
+    //getting all hotels
+
+
+    const getallhotels = async(req, res)=>{
+
+        try{
+
+
+            const hotel = await hotelmodel.find({})
+
+            res.status(StatusCodes.OK).json({hotel})
+        }
+
+        catch(error){
+
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+        }
 
 
     }
@@ -68,5 +135,4 @@ const createhotel = async(req, res)=>{
 
 
 
-
-module.exports = {createhotel, updatehotel, deletehotel}
+module.exports = {createhotel, updatehotel, deletehotel, singlehotel, getallhotels}
