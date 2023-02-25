@@ -3,13 +3,19 @@ const app = express();
 require('dotenv').config()
 const port = process.env.PORT || 3001
 const connectionDB = require('./DB/connection')
+const authroute = require('./routes/auth')
+const hotelsroute = require('./routes/hotels')
+const roomsroute = require('./routes/rooms')
+const usersroute = require('./routes/users')
 
 
 
 
-
-
-
+//MIDDLEWARES
+app.use('/api/auth', authroute)
+app.use('/api/hotels', hotelsroute)
+app.use('/api/rooms', roomsroute)
+app.use('api/users', usersroute)
 
 const DB = async()=>{
 
