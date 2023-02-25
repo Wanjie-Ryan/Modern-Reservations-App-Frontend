@@ -1,5 +1,6 @@
 const hotelmodel = require('../models/hotels')
 const {StatusCodes} = require('http-status-codes')
+const createError = require('../utils/error')
 
 
 // CREATING A HOTEL
@@ -113,19 +114,22 @@ const createhotel = async(req, res)=>{
     //getting all hotels
 
 
-    const getallhotels = async(req, res)=>{
+    const getallhotels = async(req, res, next)=>{
 
+       
         try{
 
 
-            const hotel = await hotelmodel.find({})
+            const hotel = await hotelmodel.find()
 
             res.status(StatusCodes.OK).json({hotel})
         }
 
-        catch(error){
+        catch(err){
 
-            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+            // res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
+
+            next(err)
         }
 
 

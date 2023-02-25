@@ -1,4 +1,5 @@
 const express = require('express');
+const { StatusCodes } = require('http-status-codes');
 const app = express();
 require('dotenv').config()
 const port = process.env.PORT || 3001
@@ -13,11 +14,36 @@ const usersroute = require('./routes/users')
 
 //MIDDLEWARES
 
+
+
 app.use(express.json())
 app.use('/api/auth', authroute)
 app.use('/api/hotels', hotelsroute)
 app.use('/api/rooms', roomsroute)
 app.use('/api/users', usersroute)
+
+
+
+// error middleware
+
+app.use((err, req, res, next)=>{
+
+    const errorstatus = err.status || StatusCodes.INTERNAL_SERVER_ERROR
+    const errormessage = err.message || 'something went wrong'
+    return res.status(errorstatus).json({
+
+        success:false,
+        status:errorstatus,
+        message:errormessage,
+        stack:err.stack
+    })
+
+
+
+})
+
+
+
 
 const DB = async()=>{
 
