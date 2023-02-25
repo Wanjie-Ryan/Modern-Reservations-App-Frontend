@@ -33,6 +33,11 @@ const hotelschema = new mongoose.Schema({
         type:[String]
     },
 
+    title:{
+        type:String,
+        required:[true, 'title of the hotel must be provided']
+    },
+
     description:{
 
         type:String,

@@ -12,10 +12,12 @@ const usersroute = require('./routes/users')
 
 
 //MIDDLEWARES
+
+app.use(express.json())
 app.use('/api/auth', authroute)
 app.use('/api/hotels', hotelsroute)
 app.use('/api/rooms', roomsroute)
-app.use('api/users', usersroute)
+app.use('/api/users', usersroute)
 
 const DB = async()=>{
 

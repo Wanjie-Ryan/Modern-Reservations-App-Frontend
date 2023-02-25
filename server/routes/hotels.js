@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const {createhotel} = require('../controllers/hotels')
 
 
-router.get('/', (req, res)=>{
 
-    res.send('This is the hotels endpoint')
-})
+router.route('/').post(createhotel)
 
 module.exports = router;
