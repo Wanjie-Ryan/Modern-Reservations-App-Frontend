@@ -1,4 +1,6 @@
 const hoteluser = require('../models/users')
+const error = require('../utils/error')
+const { StatusCodes } = require('http-status-codes');
 
 
 const register = async(req, res, next)=>{
@@ -17,5 +19,35 @@ const register = async(req, res, next)=>{
 }
 
 
+const login = async(req, res, next)=>{
 
-module.exports = {register}
+    try{
+
+        const {username, passowrd} = req.body
+
+        if(!username || !passowrd){
+
+            return next(error(StatusCodes.NOT_FOUND, 'The username or the Password cannot seem to be found!'))
+        }
+
+        const user = await hoteluser.findOne({username})
+
+
+
+
+
+    }
+
+    catch(err){
+
+
+        next(err)
+    }
+
+
+
+}
+
+
+
+module.exports = {register, login}
