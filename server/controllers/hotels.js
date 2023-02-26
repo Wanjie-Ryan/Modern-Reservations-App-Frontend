@@ -15,7 +15,7 @@ const createhotel = async(req, res, next)=>{
 
     }
 
-    catch(error){
+    catch(err){
 
         // res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
 
@@ -49,7 +49,7 @@ const createhotel = async(req, res, next)=>{
         }
 
 
-        catch(error){
+        catch(err){
 
             // res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(error)
             next(err)
@@ -79,7 +79,7 @@ const createhotel = async(req, res, next)=>{
 
         }
 
-        catch(error){
+        catch(err){
 
             // res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
 
@@ -108,7 +108,7 @@ const createhotel = async(req, res, next)=>{
 
         }
 
-        catch(error){
+        catch(err){
 
             // res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
             next(err)

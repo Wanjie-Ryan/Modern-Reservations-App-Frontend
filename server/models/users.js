@@ -5,76 +5,38 @@ const userschema = new mongoose.Schema({
     username:{
         type:String,
         required:[true, 'name of the user must be provided'],
-        unique:true
+        unique:true,
+        minlength: 3,
+        maxlength: 25
     },
 
     email:{
         type:String,
         required:[true, 'email must be provided'],
+         match:[
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Please provide a valid email',
+            
+            ], 
+
         unique:true
     }, 
 
     password:{
 
         type:String,
-        required:[true, 'city of the hotel must be provided']
-    },
-
-    address:{
-        type:String,
-        required:[true, 'address of the hotel must be provided']
-    },
-
-    distance:{
-        type:String,
-        required:[true, 'distance of the hotel must be provided']
-    },
-
-    photos:{
-
-        type:[String]
-    },
-
-    title:{
-        type:String,
-        required:[true, 'title of the hotel must be provided']
-    },
-
-    description:{
-
-        type:String,
-        required:[true, 'description of the hotel must be provided']
-    },
-
-    rating:{
-
-        type:Number,
-        min:0,
-        max:5
-
+        required:[true, 'password must be provided'],
+        minlength:5
     },
 
 
-    rooms:{
-
-        type:[String]
-
-        //type is an array because it will include room ids and other properties from room models
-    },
-
-    cheapestprice:{
-        type:Number,
-        required:true
-    },
-
-    featured:{
+    isAdmin:{
 
         type:Boolean,
-        Default:false
+        default:false
     }
 
 
-})
+}, {timestamps: true})
 
 
 module.exports = mongoose.model('user', userschema);

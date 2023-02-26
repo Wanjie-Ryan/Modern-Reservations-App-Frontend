@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
+const {register} = require('../controllers/auth')
 
 
-
-router.get('/register', )
+router.route('/register').post(register) 
 
 
 
