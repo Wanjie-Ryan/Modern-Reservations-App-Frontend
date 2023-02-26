@@ -23,18 +23,34 @@ const login = async(req, res, next)=>{
 
     try{
 
-        const {username, passowrd} = req.body
+        let {username, password} = req.body
 
-        if(!username || !passowrd){
+        if(!username || !password){
 
-            return next(error(StatusCodes.NOT_FOUND, 'The username or the Password cannot seem to be found!'))
+            return next(error(StatusCodes.UNAUTHORIZED, 'Please provide the username and the password!'))
         }
 
         const user = await hoteluser.findOne({username})
 
+        if(!user){
+            return next(error(StatusCodes.UNAUTHORIZED, 'The username cannot seem to be found!'))
+
+        }
+
+        //  const {isAdmin, ...otherDetails} = user._doc
+
+         const userObj = user.toObject(); // convert the Mongoose document to a plain object
+         delete userObj.password; // remove the password field
+         delete userObj.isAdmin
+
+        const correctpassword = await user.checkpwd(password)
+
+        if(!correctpassword){
+            return next(error(StatusCodes.UNAUTHORIZED, 'The password is incorrect!'))
+        }
 
 
-
+        res.status(StatusCodes.OK).json(userObj)
 
     }
 
