@@ -1,10 +1,15 @@
 const express = require('express')
 const router = express.Router()
+const {updateusers, deleteusers, singleusers, getallusers} = require('../controllers/users')
 
 
-router.get('/', (req, res) => {
-    res.send('this is the users endpoint')
-})
+
+router.route('/').get(getallusers)
+
+router.route('/:id').get(singleusers).put(updateusers).delete(deleteusers)
+
+
+
 
 
 module.exports = router

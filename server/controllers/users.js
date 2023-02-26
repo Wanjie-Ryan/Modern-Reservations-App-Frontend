@@ -1,50 +1,28 @@
-const hotelmodel = require('../models/hotels')
+const hoteluser = require('../models/users')
 const {StatusCodes} = require('http-status-codes')
 const createError = require('../utils/error')
 
 
-// CREATING A USER
-
-const createhotel = async(req, res, next)=>{
-
-    try{
-
-        const hotel = await hotelmodel.create({...req.body})
-
-        res.status(StatusCodes.CREATED).json({hotel})
-
-    }
-
-    catch(err){
-
-        // res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({error})
-
-        next(err)
-    }
-
-}
+    //UPDATE A USER    
 
 
-    //UPDATE A HOUSE    
-
-
-    const updatehotel = async(req, res, next)=>{
+    const updateusers = async(req, res, next)=>{
 
         try{
 
-            const {id:hotelID} = req.params
+            const {id:userID} = req.params
 
-            const hotel = await hotelmodel.findByIdAndUpdate({_id:hotelID}, req.body, {
+            const users = await hoteluser.findByIdAndUpdate({_id:userID}, req.body, {
                 new:true,
                 runValidators:true
             })
 
-            if(!hotel){
+            if(!users){
 
-                res.status(StatusCodes.NOT_FOUND).json({msg: `Hotel with the Id ${hotelID} cannot be not found`})
+                res.status(StatusCodes.NOT_FOUND).json({msg: `User with the Id ${userID} cannot be not found`})
             }
 
-            res.status(StatusCodes.OK).json({hotel})
+            res.status(StatusCodes.OK).json({users})
 
         }
 
@@ -59,23 +37,23 @@ const createhotel = async(req, res, next)=>{
     }
 
 
-    //DELETE A HOUSE
+    //DELETE A USER
 
-    const deletehotel = async(req, res,next)=>{
+    const deleteusers = async(req, res,next)=>{
 
         try{
 
         
-            const {id:hotelID} = req.params
+            const {id:userID} = req.params
 
-            const hotel = await hotelmodel.findByIdAndDelete({_id:hotelID} )
+            const users = await hoteluser.findByIdAndDelete({_id:userID} )
 
-            if(!hotel){
+            if(!users){
 
-                res.status(StatusCodes.NOT_FOUND).json({msg: `Hotel with the Id ${hotelID} cannot be not found`})
+                res.status(StatusCodes.NOT_FOUND).json({msg: `User with the Id ${userID} cannot be not found`})
             }
 
-            res.status(StatusCodes.OK).json({msg:'hotel has been deleted.'})
+            res.status(StatusCodes.OK).json({msg:'user has been deleted.'})
 
         }
 
@@ -89,22 +67,22 @@ const createhotel = async(req, res, next)=>{
     }
 
 
-    //getting single hotel
+    //getting single USER
 
-    const singlehotel = async(req, res, next)=>{
+    const singleusers = async(req, res, next)=>{
 
         try{
 
-            const {id:hotelID} = req.params
+            const {id:userID} = req.params
             
-            const hotel = await hotelmodel.findById({_id:hotelID})
+            const users = await hoteluser.findById({_id:userID})
 
-            if(!hotel){
+            if(!users){
 
-                res.status(StatusCodes.NOT_FOUND).json({msg:`Hotel with id ${hotelID} cannot be not found`})
+                res.status(StatusCodes.NOT_FOUND).json({msg:`User with id ${userID} cannot be not found`})
             }
 
-            res.status(StatusCodes.OK).json({hotel})
+            res.status(StatusCodes.OK).json({users})
 
         }
 
@@ -117,18 +95,17 @@ const createhotel = async(req, res, next)=>{
     }
 
 
-    //getting all hotels
+    //getting all USERS
 
 
-    const getallhotels = async(req, res, next)=>{
+    const getallusers = async(req, res, next)=>{
 
        
         try{
 
 
-            const hotel = await hotelmodel.find()
-
-            res.status(StatusCodes.OK).json({hotel})
+            const users = await hoteluser.find({})
+            res.status(StatusCodes.OK).json({users})
         }
 
         catch(err){
@@ -145,4 +122,4 @@ const createhotel = async(req, res, next)=>{
 
 
 
-module.exports = {createhotel, updatehotel, deletehotel, singlehotel, getallhotels}
+module.exports = {updateusers, deleteusers, singleusers, getallusers}
