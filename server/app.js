@@ -8,14 +8,14 @@ const authroute = require('./routes/auth')
 const hotelsroute = require('./routes/hotels')
 const roomsroute = require('./routes/rooms')
 const usersroute = require('./routes/users')
-
+const cookieParser = require('cookie-parser')
 
 
 
 //MIDDLEWARES
 
 
-
+app.use(cookieParser())
 app.use(express.json())
 app.use('/api/auth', authroute)
 app.use('/api/hotels', hotelsroute)

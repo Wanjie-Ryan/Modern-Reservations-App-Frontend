@@ -1,7 +1,7 @@
 const hoteluser = require('../models/users')
 const error = require('../utils/error')
 const { StatusCodes } = require('http-status-codes');
-
+const jwt = require('jsonwebtoken')
 
 const register = async(req, res, next)=>{
 
@@ -49,8 +49,12 @@ const login = async(req, res, next)=>{
             return next(error(StatusCodes.UNAUTHORIZED, 'The password is incorrect!'))
         }
 
+        const token = jwt.sign({id:user._id, isAdmin:user._isAdmin}, process.env.jwt_secret)
 
-        res.status(StatusCodes.OK).json(userObj)
+
+        res.cookie('access_token', token, {
+            httpOnly:true,
+        }).status(StatusCodes.OK).json(userObj)
 
     }
 
