@@ -10,6 +10,8 @@ router.route('/').get(getallrooms)
 
 router.route('/:hotelid').post(verifyadmin, createroom)
 
-router.route('/:id').get(singleroom).delete(verifyadmin ,deleteroom).put(verifyadmin ,updateroom)
+router.route('/:id/:hotelid').delete(verifyadmin ,deleteroom)
+
+router.route('/:id').get(singleroom).put(verifyadmin ,updateroom)
 
 module.exports = router

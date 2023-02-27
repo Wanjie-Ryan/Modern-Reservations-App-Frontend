@@ -75,12 +75,26 @@ const updateroom = async(req, res, next)=>{
 
 const deleteroom = async(req, res,next)=>{
 
+    const hotelid = req.params.hotelid
+
+
     try{
 
     
         const {id:roomID} = req.params
 
         const room = await roommodel.findByIdAndDelete({_id:roomID} )
+
+        try{
+
+            await hotelmodel.findByIdAndUpdate(hotelid, {$pull: {rooms:req.params.id}})
+
+        }
+
+        catch(err){
+
+            next(err)
+        }
 
         if(!room){
 
