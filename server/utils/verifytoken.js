@@ -27,7 +27,7 @@ const verifytoken = (req, res, next)=>{
 
 const userverify = (req, res, next) => {
 
-        verifytoken(req, res, ()=>{
+        verifytoken(req, res, next, ()=>{
 
             if(req.user.id === req.params.id || req.user.isAdmin){
                 next()
@@ -48,7 +48,7 @@ const userverify = (req, res, next) => {
 
 const verifyadmin = (req, res, next)=>{
 
-    verifytoken(req, res, ()=>{
+    verifytoken(req, res, next, ()=>{
 
         if(req.user.isAdmin){
             next()
