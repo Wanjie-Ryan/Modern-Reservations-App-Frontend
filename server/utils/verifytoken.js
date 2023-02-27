@@ -27,7 +27,7 @@ const verifytoken = (req, res, next)=>{
 
 const userverify = (req, res, next) => {
 
-        verifytoken(req, res, next, ()=>{
+        verifytoken(req, res, ()=>{
 
             if(req.user.id === req.params.id || req.user.isAdmin){
                 next()
@@ -46,7 +46,26 @@ const userverify = (req, res, next) => {
     }
 
 
+const verifyadmin = (req, res, next)=>{
+
+    verifytoken(req, res, ()=>{
+
+        if(req.user.isAdmin){
+            next()
+        }
+
+        else{
+
+            return next(createError(StatusCodes.FORBIDDEN, 'You are not authorized!'))
+        }
+
+    }) 
+
+}
 
 
 
-module.exports = {verifytoken, userverify}
+
+
+
+module.exports = {verifytoken, userverify, verifyadmin}
