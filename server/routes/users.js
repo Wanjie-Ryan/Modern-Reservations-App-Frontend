@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const {updateusers, deleteusers, singleusers, getallusers} = require('../controllers/users')
-const {verifytoken, verifyuser} = require('../utils/verifytoken')
+const {verifytoken, userverify} = require('../utils/verifytoken')
 
 
 
@@ -10,7 +10,7 @@ router.route('/checkauth').get(verifytoken, (req, res , next)=>{
 })
 
 
-router.route('/checkuser/:id').get(verifyuser, (req, res , next)=>{
+router.route('/checkuser/:id').get(userverify, (req, res , next)=>{
 
     res.send('You are now logged in and you can delete your account')
 })

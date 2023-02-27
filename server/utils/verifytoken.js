@@ -23,6 +23,8 @@ const verifytoken = (req, res, next)=>{
         next()
     })
 
+}
+
 const userverify = (req, res, next) => {
 
         verifytoken(req, res, next, ()=>{
@@ -44,7 +46,7 @@ const userverify = (req, res, next) => {
     }
 
 
-}
+
 
 
 module.exports = {verifytoken, userverify}
