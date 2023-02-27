@@ -30,7 +30,7 @@ const roomschema = new mongoose.Schema({
         
     },
 
-    roomnumbers: [{number: Number, unavailabledates: {type:[date]}}]
+    roomnumbers: [{number: Number, unavailabledates: {type:[Date]}}]
 
     //roomnumber will hold all the rooms in the hotel 
 
