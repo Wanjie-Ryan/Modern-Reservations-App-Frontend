@@ -9,12 +9,12 @@ const hotelsroute = require('./routes/hotels')
 const roomsroute = require('./routes/rooms')
 const usersroute = require('./routes/users')
 const cookieParser = require('cookie-parser')
-
+const cors = require('cors')
 
 
 //MIDDLEWARES
 
-
+app.use(cors())
 app.use(cookieParser())
 app.use(express.json())
 app.use('/api/auth', authroute)
