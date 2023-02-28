@@ -171,6 +171,44 @@ const createhotel = async(req, res, next)=>{
     }
 
 
+    const CountByType = async(req, res, next)=>{
 
 
-module.exports = {createhotel, updatehotel, deletehotel, singlehotel, getallhotels, CountByCity}
+        try{
+
+            const hotelcount = await hotelmodel.countDocuments({type:'Hotel'})
+
+            const apartmentcount = await hotelmodel.countDocuments({type:'Apartment'})
+
+            const resortcount = await hotelmodel.countDocuments({type:'Resort'})
+
+            const villacount = await hotelmodel.countDocuments({type:'Villa'})
+
+            const cabincount = await hotelmodel.countDocuments({type:'Cabin'})
+
+            res.status(StatusCodes.OK).json([
+
+                {type:'Hotel', count:hotelcount},
+                {type:'Apartment', count:apartmentcount},
+                {type:'Resort', count:resortcount},
+                {type:'Villa', count:villacount},
+                {type:'Cabin', count:cabincount},
+
+
+            ])
+
+        }
+
+
+        catch(err){
+
+            next(err) 
+        }
+
+
+    }
+
+
+
+
+module.exports = {createhotel, updatehotel, deletehotel, singlehotel, getallhotels, CountByCity, CountByType}
