@@ -18,7 +18,7 @@ router.route('/find/:id').get(singlehotel)
 // router.get('/').get(gethotels)
 router.route('/countbycity').get(CountByCity)
 
-router.get('/countbytype').get(CountByType)
+router.route('/countbytype').get(CountByType)
 
 
 
