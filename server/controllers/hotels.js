@@ -143,7 +143,7 @@ const createhotel = async(req, res, next)=>{
 
 
 
-    const countbycity = async(req, res, next)=>{
+    const CountByCity = async(req, res, next)=>{
 
         const cities = req.query.cities.split(',')
 
@@ -173,4 +173,4 @@ const createhotel = async(req, res, next)=>{
 
 
 
-module.exports = {createhotel, updatehotel, deletehotel, singlehotel, getallhotels, countbycity}
+module.exports = {createhotel, updatehotel, deletehotel, singlehotel, getallhotels, CountByCity}

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {createhotel, updatehotel, deletehotel, singlehotel, getallhotels, countbycity} = require('../controllers/hotels')
+const {createhotel, updatehotel, deletehotel, singlehotel, getallhotels, CountByCity} = require('../controllers/hotels')
 const {verifytoken, userverify, verifyadmin} = require('../utils/verifytoken')
 
 
@@ -8,11 +8,15 @@ const {verifytoken, userverify, verifyadmin} = require('../utils/verifytoken')
 router.route('/').post(verifyadmin ,createhotel).get(getallhotels)
 
 
-router.route('/find/:id').put(verifyadmin, updatehotel).delete(verifyadmin, deletehotel).get(singlehotel)
+router.route('/:id').put(verifyadmin, updatehotel).delete(verifyadmin, deletehotel) 
+
+router.route('/find/:id').get(singlehotel)
+
+
 
 
 // router.get('/').get(gethotels)
-router.get('/countbycity').get(countbycity)
+router.route('/countbycity').get(CountByCity)
 // router.get('/countByType').get(gethotels)
 
 
