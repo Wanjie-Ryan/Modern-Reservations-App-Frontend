@@ -156,7 +156,7 @@ const createhotel = async(req, res, next)=>{
                 return hotelmodel.countDocuments({city: city})
             }))
 
-            res.status(StatusCodes.OK).json({list})
+            res.status(StatusCodes.OK).json(list)
 
 
         }

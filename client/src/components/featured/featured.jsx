@@ -10,7 +10,7 @@ function Featured(){
 
     const {data, loading, error} = usefetch('http://localhost:3001/api/hotels/countbycity?cities=Berlin,Madrid,London')
 
-        console.log(data)
+        // console.log(data)
 
 
         // "proxy":"http://localhost:3001/api/
@@ -21,7 +21,7 @@ function Featured(){
         <>
         
 
-        {loading ? 'loading, please wait...' : <> <div className="featured">
+        {loading ? 'loading,please wait...' : <> <div className="featured">
                 
                 
 
@@ -32,7 +32,7 @@ function Featured(){
                         <div className="featuredtitles">
 
                             <h1>Berlin</h1>
-                            <h2>{data.list[0]}</h2>
+                            <h2>{data[0]}</h2>
 
                         </div>
                     </div>
@@ -45,7 +45,7 @@ function Featured(){
 
                         <div className="featuredtitles">
                             <h1>Madrid</h1>
-                            <h2>{data.list[1]}</h2>
+                            <h2>{data[1]}</h2>
                         </div>
 
                     </div>
@@ -57,7 +57,7 @@ function Featured(){
 
                         <div className="featuredtitles">
                             <h1>London</h1>
-                            <h2>{data.list[2]}</h2>
+                            <h2>{data[2]}</h2>
                         </div>
 
                     </div>
