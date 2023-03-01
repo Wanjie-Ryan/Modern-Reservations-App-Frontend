@@ -21,7 +21,7 @@ function Featured(){
         <>
         
 
-        {loading ? 'loading,please wait...' : <> <div className="featured">
+        {loading ? `<h2>loading,please wait...</h2>` : <> <div className="featured">
                 
                 
 
