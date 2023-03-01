@@ -1,9 +1,11 @@
 import React from 'react'
 import './fproperties.css'
+import usefetch from '../../hooks/usefetch'
 
 
 function Fproperties() {
 
+   const {data, loading, error} = usefetch('http://localhost:3001/api/hotels/countbytype')
 
 
 

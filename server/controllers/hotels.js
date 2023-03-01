@@ -126,7 +126,7 @@ const createhotel = async(req, res, next)=>{
         try{
 
 
-            const hotel = await hotelmodel.find()
+            const hotel = await hotelmodel.find(req.query).limit(req.query.limit)
 
             res.status(StatusCodes.OK).json({hotel})
         }

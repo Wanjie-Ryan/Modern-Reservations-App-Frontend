@@ -8,7 +8,7 @@ function Propertylist() {
 
    const {data, loading, error} = usefetch('http://localhost:3001/api/hotels/countbytype')
 
-   console.log(data)
+   // console.log(data)
 
    const images =[
 
@@ -39,7 +39,7 @@ function Propertylist() {
            
               {data && data.length === images.length && images.map((img, i)=>(
 
-               <div className="plistitem" key={i}>
+               <div className="plistitem" key={i} >
 
 
                   <img src={img} alt="" className="plistimg" /> 
