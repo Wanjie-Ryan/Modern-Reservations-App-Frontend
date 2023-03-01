@@ -37,7 +37,7 @@ function Propertylist() {
             {loading ? (<h2>Loading,Please Wait... </h2> ) : (<>
      
            
-              {data && images.map((img, i)=>(
+              {data && data.length === images.length && images.map((img, i)=>(
 
                <div className="plistitem" key={i}>
 
