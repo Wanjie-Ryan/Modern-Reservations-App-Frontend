@@ -126,10 +126,10 @@ const createhotel = async(req, res, next)=>{
         const {min, max , ...others} = req.query
 
 
-        const limit = Number(req.query.limit)
         // console.log(limit)
         
         try{
+        const limit = Number(req.query.limit)
             
             //others represents other query options that maybe passed in the query.
 
@@ -140,8 +140,10 @@ const createhotel = async(req, res, next)=>{
             //     limit = Number(req.query.limit)
             // }
 
+            const hotel = await hotelmodel.find({...others, cheapestprice:{$gt:min | 1, $lt:max | 400}}).limit(4)
 
-            const hotel = await hotelmodel.find({...others, cheapestprice:{$gt:min | 1, $lt:max | 400}}).limit(2)
+
+            // const hotel = await hotelmodel.find();
 
             res.status(StatusCodes.OK).json(hotel)
 

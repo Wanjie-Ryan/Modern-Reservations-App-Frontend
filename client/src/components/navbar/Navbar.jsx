@@ -1,5 +1,7 @@
 import React from 'react'
 import './navbar.css'
+import {Link} from 'react-router-dom';
+
 
 function Navbar() {
   return (
@@ -8,7 +10,9 @@ function Navbar() {
     
         <div className="navbar">
             <div className="navcontainer">
-                <span className="logo">Rawa</span>    
+              <Link to ='/' style={{color:'inherit', textDecoration:'none'}}>
+                <span className="logo">Rawa</span> 
+              </Link>   
 
                 <div className="navitems">
 
