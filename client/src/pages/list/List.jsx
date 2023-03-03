@@ -8,6 +8,10 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import {format} from 'date-fns';
 import Searchitem from '../../components/searchitem/searchitem'
+import usefetch from '../../hooks/usefetch'
+
+
+
 
 function List() {
 
@@ -21,8 +25,9 @@ function List() {
   const [date, setdate] = useState(location.state.date)
   const [options, setoptions] = useState(location.state.options)
 
+  const {data, loading, error} = usefetch(`http://localhost:3001/api/hotels?city=${destination}`)
 
-
+  // console.log(data)
 
 
   return (
@@ -135,13 +140,19 @@ function List() {
 
 
             <div className="listresult">
+
+
                   
-                <Searchitem/>
-                <Searchitem/>
-                <Searchitem/>
-                <Searchitem/>
-                <Searchitem/>
-                <Searchitem/>
+                {loading ? <h2>Loading,Please Wait...</h2> :<>
+                  {data.map(items=>( 
+
+                  
+                    <Searchitem items = {items} key={items._id}/>
+                    
+                  ))}
+                
+                </>}
+                
                 
 
 

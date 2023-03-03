@@ -7,7 +7,7 @@ function Fproperties() {
 
    const {data, loading, error} = usefetch('http://localhost:3001/api/hotels?featured=true')
 
-    console.log(data)
+    // console.log(data)
 
 
   return (
