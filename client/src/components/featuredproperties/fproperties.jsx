@@ -24,7 +24,13 @@ function Fproperties() {
 
                 <div className="fpitem" key = {item._id}>
 
-                    <img src="https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1" alt="" className="fpImg" />
+                   {item.photo ? <img src={item.photo[0]} alt="" className="fpImg" /> : <> 
+
+
+                   <img src="https://cf.bstatic.com/xdata/images/hotel/square600/13125860.webp?k=e148feeb802ac3d28d1391dad9e4cf1e12d9231f897d0b53ca067bde8a9d3355&o=&s=1" alt="" className="fpImg" />
+
+                   
+                   </>}
 
                     <span className="fpname">{item.name}</span>
                     <span className="fpcity">{item.city}</span>
