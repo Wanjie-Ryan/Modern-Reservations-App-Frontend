@@ -24,10 +24,22 @@ function List() {
   const [opendate, setopendate] = useState(false)
   const [date, setdate] = useState(location.state.date)
   const [options, setoptions] = useState(location.state.options)
+  const [minprice, setminprice] = useState(undefined)
+  const [maxprice, setmaxprice] = useState(undefined)
 
-  const {data, loading, error} = usefetch(`http://localhost:3001/api/hotels?city=${destination}`)
 
-  // console.log(data)
+    const {data, loading, error, refetch} = usefetch(`http://localhost:3001/api/hotels?min=${minprice || 0 }&max=${maxprice || 1000}`)
+
+    // &?city=${destination}
+
+    // console.log(data)
+
+
+    const handleclick = ()=>{
+
+      refetch()
+
+    }
 
 
   return (
@@ -80,7 +92,7 @@ function List() {
                         Min price <small>per night</small>
                       </span>
 
-                      <input type='number' className="ispotioninput" />
+                      <input type='number' onChange = {e=>setminprice(e.target.value)} className="ispotioninput" />
 
 
                     </div>
@@ -92,7 +104,7 @@ function List() {
                         Max price <small>per night</small>
                       </span>
 
-                      <input type='number' className="ispotioninput" />
+                      <input type='number' onChange ={e=>setmaxprice(e.target.value)}className="ispotioninput" />
 
 
                     </div>
@@ -134,7 +146,7 @@ function List() {
 
                 </div>
 
-                <button>Search</button>
+                <button onClick = {handleclick} >Search</button>
 
             </div>
 
