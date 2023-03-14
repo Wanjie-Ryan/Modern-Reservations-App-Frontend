@@ -1,6 +1,16 @@
 import React, {createContext, useReducer} from 'react';
 
 
+// the useReducer hook manages the state in the context. useReducer hook takes a reducer function and an initial state and returns an array with the current state and dispatch function.
+
+//usereducer has reducer function and initial state
+
+//usereducer then returns an array. 
+
+// reducer function takes the current state and an action object and returns new state
+
+
+
 const initialstate ={
 
     city:undefined,
@@ -12,14 +22,18 @@ const initialstate ={
         room:undefined
     }
 
+    // initialstate defines the initial state of the context which has 3 properties city, dates and options.
+
 }
 
-    
 
-export const Searchcontext = React.createContext(initialstate)
+
+export const Searchcontext = createContext(initialstate)
 // creating the context
 
  const searchreducer =(state,action)=>{
+
+    // searchreducer is the reducer function used to update the state based on the dispatched actions.
 
     switch(action.type){
         case 'newsearch': 
@@ -38,7 +52,11 @@ export const Searchcontext = React.createContext(initialstate)
 
  export const SearchcontextProvider = ({children}) =>{
 
+    //SearchcontextProvider is a provider component that wraps the components that need access to the context
+
     const [state, dispatch] = useReducer(searchreducer, initialstate)
+
+    // the provider component takes in the state and dispatch values from usereducer and passes them down to the context using the value prop.
 
     return(
         <Searchcontext.Provider value = {{city:state.city, dates:state.dates, options:state.options, dispatch}}>
