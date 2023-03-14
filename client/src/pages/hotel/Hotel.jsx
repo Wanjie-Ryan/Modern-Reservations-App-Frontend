@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './hotel.css'
 import Navbar from '../../components/navbar/Navbar'
 import Header from '../../components/header/Header'
@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faLocationDot, faCircleXmark, faCircleArrowLeft, faCircleArrowRight} from '@fortawesome/free-solid-svg-icons'
 import usefetch from '../../hooks/usefetch'
 import {useLocation} from  'react-router-dom'
+import { Searchcontext } from '../../context/serachcontext'
 
 
 function Hotel() {
@@ -21,13 +22,16 @@ function Hotel() {
 
   const id = location.pathname.split('/')[2]
 
-  console.log(id)
+  // console.log(id)
 
   const [slideindex, setslideindex] = useState(0)
   const [open, setopen] = useState(false)
   const {data, loading, error} = usefetch(`http://localhost:3001/api/hotels/find/${id}`)
 
 
+  const {date } = useContext(Searchcontext)
+
+  console.log(date)
 
 
 
