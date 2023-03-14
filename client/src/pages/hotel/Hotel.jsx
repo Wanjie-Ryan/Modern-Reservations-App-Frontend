@@ -21,7 +21,7 @@ function Hotel() {
 
   const id = location.pathname.split('/')[2]
 
-  // console.log(id)
+  console.log(id)
 
   const [slideindex, setslideindex] = useState(0)
   const [open, setopen] = useState(false)
