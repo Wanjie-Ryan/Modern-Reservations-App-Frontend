@@ -34,6 +34,32 @@ function Hotel() {
   console.log(date)
 
 
+    //code for getting the number of days between two dates
+
+
+    const days = 1000 * 60 * 60 * 24
+
+    //milliseconds_per_day
+
+    function daydiff(date1, date2){
+
+      const timediff = Math.abs(date2.getTime() - date1.getTime())
+
+      //subtracts starting date from end date
+
+      const diffdays = Math.ceil(timediff / days)
+
+      return diffdays
+    }
+
+    // console.log(daydiff(date[0].endDate, date[0].startDate ))
+
+    const daybtn = daydiff(date[0].endDate, date[0].startDate )
+
+
+
+
+
 
   // const photos = [
   //   {
