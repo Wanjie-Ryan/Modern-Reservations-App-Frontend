@@ -14,7 +14,7 @@ import React, {createContext, useReducer} from 'react';
 const initialstate ={
 
     city:undefined,
-    dates:[],
+    date:[],
     options:{
 
         adult:undefined,
@@ -59,7 +59,7 @@ export const Searchcontext = createContext(initialstate)
     // the provider component takes in the state and dispatch values from usereducer and passes them down to the context using the value prop.
 
     return(
-        <Searchcontext.Provider value = {{city:state.city, dates:state.dates, options:state.options, dispatch}}>
+        <Searchcontext.Provider value = {{city:state.city, date:state.date, options:state.options, dispatch}}>
             {children}
         </Searchcontext.Provider>
     )
