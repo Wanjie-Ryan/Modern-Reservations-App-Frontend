@@ -1,9 +1,12 @@
 import React, {createContext, useContext, useEffect,useReducer} from 'react';
 
 
+//when my component is first loaded, this is going to be its initial state, whereby it will fetch the user stored in local storage and if there is no user it will return null
+
+
 const initialstate ={
 
-    user:null,
+    user:JSON.parse(localStorage.getItem('user')) || null,
     loading:false,
 
     //at the beginning the loading is false.
@@ -77,7 +80,7 @@ const Authreducer =(state, action)=>{
 
         useEffect(()=>{
 
-            localStorage.setItem('user', JSON.stringify())
+            localStorage.setItem('user', JSON.stringify(state.user))
 
 
         }, [state.user])
