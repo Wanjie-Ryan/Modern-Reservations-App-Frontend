@@ -14,7 +14,7 @@ function Login() {
     })
 
 
-    const {loading, error, dispatch} = useContext(Authcontext)
+    const {user, loading, error, dispatch} = useContext(Authcontext)
 
 
     const handlechange = (e)=>{
@@ -36,7 +36,9 @@ function Login() {
 
         try{
 
-            const res = await axios.post('')
+            const res = await axios.post('http://localhost:3001/api/auth/login', credentials)
+
+            dispatch({type:'loginsuccess', payload:res.data})
 
 
         }
@@ -48,6 +50,9 @@ function Login() {
 
 
     }
+
+
+    console.log(user)
 
 
 
@@ -67,7 +72,7 @@ function Login() {
 
                 <input type="password" placeholder='password' onChange ={handlechange} id="password" className='input'/>
 
-                <button onClick = {handleclick} className="bnt">Login</button>
+                <button onClick = {handleclick} className="btn">Login</button>
 
                 {error && <span>{error.message}</span>}
 
@@ -75,12 +80,6 @@ function Login() {
 
 
             </div>
-
-
-
-
-
-
 
 
 
