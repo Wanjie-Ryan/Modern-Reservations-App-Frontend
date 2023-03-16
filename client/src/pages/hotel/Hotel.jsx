@@ -115,13 +115,24 @@ function Hotel() {
     setslideindex(newslideindex)
   }
 
+
+  // if(!id){
+
+  //   return <div>Loading...</div>
+  // }
+
   
   
 
 
   return (
 
+    <>
     
+    {loading ? (
+      
+      <h2>Loading, Please Wait...</h2>) : data ? (
+
       <>
 
       <div>
@@ -130,7 +141,7 @@ function Hotel() {
       </div>
 
 
-      {loading ? <h2>Loading, Please Wait...</h2> : <> <div className='hotelcontainer'>
+       <div className='hotelcontainer'>
 
         {open && <div className='slider'>
 
@@ -214,12 +225,20 @@ function Hotel() {
 
 
         </div>
-      </div></>}
+      </div>
 
 
 
 
     </>
+
+      ) :(
+
+        <h2>An error occurred while fetching the data</h2>
+
+  )}
+
+  </>
 
     
 
