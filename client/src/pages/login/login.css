@@ -36,7 +36,7 @@
     cursor: not-allowed;
 }
 
-span{
+.error{
 
     color:red;
 }

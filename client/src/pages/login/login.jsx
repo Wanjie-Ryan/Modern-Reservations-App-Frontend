@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react'
 import { Authcontext } from '../../context/authcontext'
 import './login.css'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 
 function Login() {
@@ -15,6 +16,10 @@ function Login() {
 
 
     const {user, loading, error, dispatch} = useContext(Authcontext)
+
+    // when user clicks the login button he is going to be redirected to the home page
+
+    const navigate = useNavigate()
 
 
     const handlechange = (e)=>{
@@ -40,7 +45,7 @@ function Login() {
 
             dispatch({type:'loginsuccess', payload:res.data})
 
-
+            navigate('/')
         }
 
         catch(err){
@@ -72,9 +77,11 @@ function Login() {
 
                 <input type="password" placeholder='password' onChange ={handlechange} id="password" className='input'/>
 
-                <button onClick = {handleclick} className="btn">Login</button>
+                <button disabled = {loading} onClick = {handleclick} className="btn">Login</button>
 
-                {error && <span>{error.message}</span>}
+                {/* button will be disabled if it is loading */}
+
+                {error && <span className='error'>{error.message}</span>}
 
 
 
