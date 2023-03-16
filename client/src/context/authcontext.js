@@ -95,12 +95,12 @@ const Authreducer =(state, action)=>{
         return(
 
 
-            <AuthcontextProvider value={{user:state.user, loading:state.loading, error:state.error, dispatch}}>
+            <Authcontext.Provider value={{user:state.user, loading:state.loading, error:state.error, dispatch}}>
 
 
                 {children}
 
-            </AuthcontextProvider>
+            </Authcontext.Provider>
         )
 
 
