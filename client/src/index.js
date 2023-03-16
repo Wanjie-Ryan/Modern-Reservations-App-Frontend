@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import {SearchcontextProvider} from './context/serachcontext'
+import {SearchcontextProvider} from './context/searchcontext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

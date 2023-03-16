@@ -104,7 +104,7 @@ const createhotel = async(req, res, next)=>{
                 res.status(StatusCodes.NOT_FOUND).json({msg:`Hotel with id ${hotelID} cannot be not found`})
             }
 
-            res.status(StatusCodes.OK).json({hotel})
+            res.status(StatusCodes.OK).json(hotel)
 
         }
 

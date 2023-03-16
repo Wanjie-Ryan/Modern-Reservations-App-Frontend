@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import './hotel.css'
 import Navbar from '../../components/navbar/Navbar'
 import Header from '../../components/header/Header'
@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faLocationDot, faCircleXmark, faCircleArrowLeft, faCircleArrowRight} from '@fortawesome/free-solid-svg-icons'
 import usefetch from '../../hooks/usefetch'
 import {useLocation} from  'react-router-dom'
-import { Searchcontext } from '../../context/serachcontext'
+import { Searchcontext } from '../../context/searchcontext'
 
 
 function Hotel() {
@@ -20,7 +20,15 @@ function Hotel() {
 
   // console.log(location)
 
-  const id = location.pathname.split('/')[2]
+  const [id, setid] =useState()
+
+  useEffect(()=>{
+
+    const id = location.pathname.split('/')[2]
+    setid(id)
+
+  },[location.pathname])
+
 
   // console.log(id)
 
@@ -28,8 +36,10 @@ function Hotel() {
   const [open, setopen] = useState(false)
   const {data, loading, error} = usefetch(`http://localhost:3001/api/hotels/find/${id}`)
 
+  console.log(data)
 
-  const {date } = useContext(Searchcontext)
+
+  const {date, options } = useContext(Searchcontext)
 
   console.log(date)
 
@@ -54,7 +64,7 @@ function Hotel() {
 
     // console.log(daydiff(date[0].endDate, date[0].startDate ))
 
-    const daybtn = daydiff(date[0].endDate, date[0].startDate )
+    const daysbtn = daydiff(date[0].endDate, date[0].startDate )
 
 
 
@@ -111,7 +121,8 @@ function Hotel() {
 
   return (
 
-    <>
+    
+      <>
 
       <div>
         <Navbar/>
@@ -179,13 +190,13 @@ function Hotel() {
 
               <div className="hoteldetailsprice">
 
-                <h1>Perfect for a 9-night stay!</h1>
+                <h1>Perfect for a {daysbtn}-night stay!</h1>
 
 
                 <span>Located in the real heart of Krakow, this property has an excellent location score of 9.8!</span>
 
                 <h2>
-                  <b>$945</b> (9 nights)
+                  <b>${daysbtn * data.cheapestprice * options.room }</b> ({daysbtn} nights)
                 </h2>
 
                 <button>Reserve or Book now!</button>
@@ -209,6 +220,8 @@ function Hotel() {
 
 
     </>
+
+    
 
   )
 }
