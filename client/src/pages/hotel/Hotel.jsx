@@ -121,6 +121,8 @@ function Hotel() {
   //   return <div>Loading...</div>
   // }
 
+
+  //has a slight error when i refresh the page, the content disappears
   
   
 
