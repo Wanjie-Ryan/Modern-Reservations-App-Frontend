@@ -8,6 +8,9 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import {format} from 'date-fns';
 import { Searchcontext } from '../../context/searchcontext';
+import { Authcontext } from '../../context/authcontext';
+
+
 //transforms the date function into readable strings
 
 function Header({type}) {
@@ -76,6 +79,8 @@ function Header({type}) {
 
     }
 
+    const {user} = useContext(Authcontext)
+
 
 
 
@@ -135,7 +140,11 @@ function Header({type}) {
 
                 <p className="headerdesc">Get rewarded for your travels - unlock instant savings of 10% or more with a free Rawa account</p>
 
-                <button className="headerbtn">Sign In / Register</button>
+                {
+                    !user &&
+
+                    <button className="headerbtn">Sign In / Register</button>
+                }
 
                 <div className="headersearch">
 
