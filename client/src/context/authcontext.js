@@ -72,6 +72,23 @@ const Authreducer =(state, action)=>{
         const [state, dispatch] =useReducer(Authreducer, initialstate)
 
 
+        // when user logs in, I want to store his details in local storage, so that even if he or she refreshes the page, he is not logged out that is why I use the useEffect hook.
+
+
+        useEffect(()=>{
+
+            localStorage.setItem('user', JSON.stringify())
+
+
+        }, [state.user])
+
+
+        //stringify changes the object property to a string in order for it to be saved in local storage
+
+        // whenever it changes we are going to update the local storage
+
+
+
         return(
 
 
