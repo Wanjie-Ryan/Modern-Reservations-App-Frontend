@@ -18,26 +18,27 @@ function Navbar() {
           
           <div className="navbar">
 
-            {
-
-              user ? user.username :
+          
                 <div className="navcontainer">
                   <Link to ='/' style={{color:'inherit', textDecoration:'none'}}>
                     <span className="logo">Rawa</span> 
                   </Link>   
 
-                    <div className="navitems">
+                    {user ? <span>Welcome, <b>{user.username}</b></span> :
+
+                      <div className="navitems">
 
 
-                        <Link to ='/register'><button className="navbutton">Register</button></Link>
+                          <Link to ='/register'><button className="navbutton">Register</button></Link>
 
-                        <Link to ='/login'><button className="navbutton">LogIn</button></Link>
+                          <Link to ='/login'><button className="navbutton">LogIn</button></Link>
 
 
-                    </div>
+                      </div>
+                   }
                     
                 </div>    
-          }  
+           
 
         </div>
         
