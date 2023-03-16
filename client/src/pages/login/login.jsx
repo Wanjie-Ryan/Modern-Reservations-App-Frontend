@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react'
 import { Authcontext } from '../../context/authcontext'
 import './login.css'
+import axios from 'axios'
 
 
 function Login() {
@@ -25,9 +26,27 @@ function Login() {
     }
 
 
-    const handleclick =()=>{
+    const handleclick = async(e)=>{
 
-        
+        //function is async because we are going to be making API requests
+
+        e.preventDefault() // prevents page from erasing its contents
+
+        dispatch({type:'loginStart'})
+
+        try{
+
+            const res = await axios.post('')
+
+
+        }
+
+        catch(err){
+
+            dispatch({type:'loginfailure', payload:err.response.data})
+        }
+
+
     }
 
 
