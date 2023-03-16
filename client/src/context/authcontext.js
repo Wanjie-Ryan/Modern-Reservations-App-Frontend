@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useEffect} from 'react';
+import React, {createContext, useContext, useEffect,useReducer} from 'react';
 
 
 const initialstate ={
@@ -64,6 +64,28 @@ const Authreducer =(state, action)=>{
 
              return state
         }
+    }
+
+
+    export const AuthcontextProvider = ({children})=>{
+
+        const [state, dispatch] =useReducer(Authreducer, initialstate)
+
+
+        return(
+
+
+            <AuthcontextProvider value={{user:state.user, loading:state.loading, error:state.error, dispatch}}>
+
+
+                {children}
+
+            </AuthcontextProvider>
+        )
+
+
+
+
     }
 
 
