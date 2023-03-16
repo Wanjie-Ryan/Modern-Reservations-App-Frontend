@@ -16,9 +16,18 @@ function Login() {
     const {loading, error, dispatch} = useContext(Authcontext)
 
 
-    const handlechange = ()=>{
+    const handlechange = (e)=>{
+
+        setcredentials((prev)=>({...prev, [e.target.id]:e.target.value}))
+
+        // we are taking the previous value and returning it together with credetential name using the id 
+
+    }
 
 
+    const handleclick =()=>{
+
+        
     }
 
 
@@ -39,7 +48,7 @@ function Login() {
 
                 <input type="password" placeholder='password' onChange ={handlechange} id="password" className='input'/>
 
-                <button className="bnt">Login</button>
+                <button onClick = {handleclick} className="bnt">Login</button>
 
                 {error && <span>{error.message}</span>}
 
