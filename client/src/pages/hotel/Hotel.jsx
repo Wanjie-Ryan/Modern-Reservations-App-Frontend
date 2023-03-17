@@ -11,6 +11,7 @@ import {useLocation} from  'react-router-dom'
 import { Searchcontext } from '../../context/searchcontext'
 import { Authcontext } from '../../context/authcontext'
 import {useNavigate} from 'react-router-dom'
+import Reserve from '../../components/reserve/reserve'
 
 
 function Hotel() {
@@ -252,11 +253,11 @@ function Hotel() {
                 <Mail/>
                 <Footer/>
 
-
-
-
-
         </div>
+
+              {openmodal && <Reserve setopen={setopenmodal} hotelid = {id}/>}
+
+
       </div>
 
 
