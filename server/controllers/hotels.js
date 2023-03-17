@@ -228,6 +228,25 @@ const createhotel = async(req, res, next)=>{
     }
 
 
+    const gethotelrooms = async(res, req, next)=>{
 
 
-module.exports = {createhotel, updatehotel, deletehotel, singlehotel, getallhotels, CountByCity, CountByType}
+        try{
+
+            
+
+
+        }
+
+        catch(err){
+
+            next(err)
+        }
+
+
+    }
+
+
+
+
+module.exports = {createhotel, updatehotel, deletehotel, singlehotel, getallhotels, CountByCity, CountByType, gethotelrooms}
