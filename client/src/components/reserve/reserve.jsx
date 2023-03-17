@@ -1,6 +1,7 @@
 import React from 'react'
 import './reserve.css'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 
 
 function Reserve({setopen, id}) {
@@ -15,7 +16,21 @@ function Reserve({setopen, id}) {
 
 
     
-        <div className='reserve'>reserve</div>
+        <div className='reserve'>
+            <div className="rcontainer">
+
+                <FontAwesomeIcon icon ={faCircleXmark} className= 'rclose' onClick ={()=>setopen(false)}/>
+
+                <span>Select your rooms: </span>
+
+
+
+
+
+            </div>
+
+     
+        </div>
     
     
     </>

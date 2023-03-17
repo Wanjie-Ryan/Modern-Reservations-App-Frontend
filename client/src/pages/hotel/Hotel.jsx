@@ -191,7 +191,7 @@ function Hotel() {
         </div>}
 
         <div className="hotelwrapper">
-          <button className="booknow">Reserve or Book Now!</button>
+          <button className="booknow" onClick = {handlelogin}>Reserve or Book Now!</button>
           <h1 className="hoteltitle">{data.name}</h1>
           <div className="hoteladdress">
 
