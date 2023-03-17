@@ -9,6 +9,8 @@ import {faLocationDot, faCircleXmark, faCircleArrowLeft, faCircleArrowRight} fro
 import usefetch from '../../hooks/usefetch'
 import {useLocation} from  'react-router-dom'
 import { Searchcontext } from '../../context/searchcontext'
+import { Authcontext } from '../../context/authcontext'
+import {useNavigate} from 'react-router-dom'
 
 
 function Hotel() {
@@ -123,6 +125,30 @@ function Hotel() {
 
 
   //has a slight error when i refresh the page, the content disappears
+
+
+  const {user} = useContext(Authcontext)
+
+  const navigate = useNavigate()
+
+
+
+  const handlelogin =()=>{
+
+    if (user){
+
+
+    }
+
+    else{
+
+      navigate('/login')
+
+      //if user is not available redirect user to login page
+    }
+
+
+  }
   
   
 
@@ -212,7 +238,7 @@ function Hotel() {
                   <b>${daysbtn * data.cheapestprice * options.room }</b> ({daysbtn} nights)
                 </h2>
 
-                <button>Reserve or Book now!</button>
+                <button onClick = {handlelogin}>Reserve or Book now!</button>
 
 
               </div>
