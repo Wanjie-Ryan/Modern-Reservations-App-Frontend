@@ -233,7 +233,11 @@ const createhotel = async(req, res, next)=>{
 
         try{
 
-            
+            const specifchotel = hotelmodel.findById(req.params.id)
+
+            const list =  await Promise.all(specifichotel.rooms.map(room))
+
+
 
 
         }
