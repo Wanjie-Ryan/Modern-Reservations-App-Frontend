@@ -1,6 +1,8 @@
 const hotelmodel = require('../models/hotels')
 const {StatusCodes} = require('http-status-codes')
 const createError = require('../utils/error')
+const roommodel = require('../models/rooms')
+
 
 
 // CREATING A HOTEL
@@ -233,12 +235,15 @@ const createhotel = async(req, res, next)=>{
 
         try{
 
-            const specifchotel = hotelmodel.findById(req.params.id)
+            const specifichotel = await hotelmodel.findById(req.params.id)
 
-            const list =  await Promise.all(specifichotel.rooms.map(room))
+            const list =  await Promise.all(specifichotel.rooms.map((room)=>{
+
+                return roommodel.findById(room)
+            }))
 
 
-
+            res.status(StatusCodes.OK).json(list)
 
         }
 
