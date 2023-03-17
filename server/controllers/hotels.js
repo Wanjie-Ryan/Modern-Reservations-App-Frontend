@@ -230,7 +230,7 @@ const createhotel = async(req, res, next)=>{
     }
 
 
-    const gethotelrooms = async(res, req, next)=>{
+    const gethotelrooms = async(req, res, next)=>{
 
 
         try{
