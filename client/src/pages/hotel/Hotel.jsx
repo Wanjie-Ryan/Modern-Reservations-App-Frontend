@@ -126,6 +126,7 @@ function Hotel() {
 
   //has a slight error when i refresh the page, the content disappears
 
+  const [openmodal, setopenmodal] =useState(false)
 
   const {user} = useContext(Authcontext)
 
@@ -137,6 +138,9 @@ function Hotel() {
 
     if (user){
 
+      //if user is available, open the modal page to show the rooms
+
+      setopenmodal(true)
 
     }
 
