@@ -243,7 +243,7 @@ function Hotel() {
                   <b>${daysbtn * data.cheapestprice * options.room }</b> ({daysbtn} nights)
                 </h2>
 
-                <button onClick = {handlelogin}>Reserve or Book now!</button>
+                <button onClick = {handlelogin} >Reserve or Book now!</button>
 
 
               </div>

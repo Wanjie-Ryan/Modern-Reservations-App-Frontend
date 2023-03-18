@@ -17,6 +17,14 @@ function Reserve({setopen, hotelid}) {
     console.log(data)
 
 
+
+
+    const handlechange =(e)=>{
+
+
+    }
+
+
   return (
 
 
@@ -41,15 +49,20 @@ function Reserve({setopen, hotelid}) {
 
                     <div className="rprice">{item.price}</div>
 
-                    <div className="room">
 
-                      {item.roomnumbers.map(num=>{
+                      {item.roomnumbers.map((num)=>(
+
+                        <div className="room">
+                        
+                            <label>{num.number}</label>
+
+                            <input type ='checkbox' value ={num._id} onChange ={handlechange}/>
 
 
-                      })}
+                        </div>
+                      ))}
 
 
-                    </div>
 
 
                   </div>
