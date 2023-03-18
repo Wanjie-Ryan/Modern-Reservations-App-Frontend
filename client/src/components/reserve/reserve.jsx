@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './reserve.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import usefetch from '../../hooks/usefetch'
-
+import { Searchcontext } from '../../context/searchcontext'
 
 
 
@@ -31,10 +31,20 @@ function Reserve({setopen, hotelid}) {
 
         setselectedrooms(checked ? [...selectedrooms, value] : selectedrooms.filter((item)=>item !== value))
 
+        // It checks if the checkbox has been checked, gets the value of the checkbox, and updates the selectedrooms state array accordingly. If the checkbox is checked, it adds the room ID to the array, and if the checkbox is unchecked, it removes the room ID from the array.
 
     }
 
+    const {date} = useContext(Searchcontext)
+
     // console.log(selectedrooms)
+
+    const handleclick =()=>{
+
+
+
+
+    }
 
 
   return (
@@ -74,13 +84,12 @@ function Reserve({setopen, hotelid}) {
                         </div>
                       ))}
 
-
-
-
                   </div>
 
-
                 ))}
+
+
+                <button  onClick = {handleclick} className="rbtn"> Reserve now!</button>
 
 
 
