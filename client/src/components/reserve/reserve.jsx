@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './reserve.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
@@ -17,12 +17,24 @@ function Reserve({setopen, hotelid}) {
     console.log(data)
 
 
+    const [selectedrooms, setselectedrooms] = useState([])
 
 
     const handlechange =(e)=>{
 
 
+        const checked = e.target.checked
+
+        // checks if the checkbox has been selected.
+
+        const value = e.target.value
+
+        setselectedrooms(checked ? [...selectedrooms, value] : selectedrooms.filter((item)=>item !== value))
+
+
     }
+
+    // console.log(selectedrooms)
 
 
   return (
