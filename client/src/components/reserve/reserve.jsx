@@ -35,9 +35,37 @@ function Reserve({setopen, hotelid}) {
 
     }
 
+    // console.log(selectedrooms)
+
     const {date} = useContext(Searchcontext)
 
-    // console.log(selectedrooms)
+    
+
+     const getdateinrange = (startDate, endDate)=>{
+
+      const start = new Date(startDate)
+
+      const end = new Date(endDate)
+
+      const dates = new Date(start.getTime())
+
+      let list =[]
+
+      while(dates <= end){
+
+        list.push(new Date(dates).getTime())
+
+        dates.setDate(dates.getDate() +1)
+      }
+
+      return list
+
+     }
+
+     console.log(getdateinrange(date[0].startdate, date[0].enddate))
+
+
+
 
     const handleclick =()=>{
 
