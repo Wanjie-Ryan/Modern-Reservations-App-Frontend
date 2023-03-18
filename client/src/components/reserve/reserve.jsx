@@ -125,7 +125,7 @@ function Reserve({setopen, hotelid}) {
                         
                             <label>{num.number}</label>
 
-                            <input type ='checkbox' disabled = {!isAvailable(roomnumbers)} value ={num._id} onChange ={handlechange}/>
+                            <input type ='checkbox' disabled = {!isAvailable(num)} value ={num._id} onChange ={handlechange}/>
 
 
                         </div>
