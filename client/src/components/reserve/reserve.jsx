@@ -39,9 +39,12 @@ function Reserve({setopen, hotelid}) {
 
     const {date} = useContext(Searchcontext)
 
-    
+
 
      const getdateinrange = (startDate, endDate)=>{
+
+      // the arguments startdate and enddate are strings representing dates
+
 
       const start = new Date(startDate)
 
@@ -62,7 +65,23 @@ function Reserve({setopen, hotelid}) {
 
      }
 
-     console.log(getdateinrange(date[0].startdate, date[0].enddate))
+    //  console.log(getdateinrange(date[0].startDate, date[0].endDate))
+
+    const alldates = getdateinrange(date[0].startDate, date[0].endDate)
+
+
+    const isAvailable = (roomnumbers)=>{
+
+      const isFound = roomnumbers.unavailabledates.some((dates)=>
+
+        alldates.includes(new Date(dates).getTime())
+      )
+
+
+      return !isFound
+
+
+    }
 
 
 
@@ -106,7 +125,7 @@ function Reserve({setopen, hotelid}) {
                         
                             <label>{num.number}</label>
 
-                            <input type ='checkbox' value ={num._id} onChange ={handlechange}/>
+                            <input type ='checkbox' disabled = {!isAvailable(roomnumbers)} value ={num._id} onChange ={handlechange}/>
 
 
                         </div>
