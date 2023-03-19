@@ -168,6 +168,40 @@ const getallrooms = async(req, res, next)=>{
 }
 
 
+const updateroomavailability = async(req, res, next)=>{
+
+
+    try{
+
+        const {id:roomID} = req.params
+
+        const room = await roommodel.findByIdAndUpdate({_id:roomID}, req.body, {
+            new:true,
+            runValidators:true
+        })
+
+        if(!room){
+
+            res.status(StatusCodes.NOT_FOUND).json({msg: `Room with the Id ${roomID} cannot be not found`})
+        }
+
+        res.status(StatusCodes.OK).json({room})
+
+    }
+
+
+    catch(err){
+
+        // res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(error)
+        next(err)
+    }
+
+
+
+
+
+
+}
 
 
 
@@ -177,4 +211,6 @@ const getallrooms = async(req, res, next)=>{
 
 
 
-module.exports = {createroom, updateroom, deleteroom, getallrooms, singleroom }
+
+
+module.exports = {createroom, updateroom, deleteroom, getallrooms, singleroom, updateroomavailability }
