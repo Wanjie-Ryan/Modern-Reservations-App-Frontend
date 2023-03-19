@@ -1,15 +1,17 @@
 .footer{
     width:100%;
-    width: 1024px;
+    max-width: 1024px;
     font-size: 12px;
+    margin: 0 auto;
 }
 
 .flists{
 
-    width:100%;
+    /* width:100%; */
     display:flex;
     justify-content: space-between;
     margin-bottom: 50px;
+    /* flex-wrap: wrap; */
 }
 
 .flist{
@@ -36,12 +38,42 @@
 
 @media screen and (max-width:1024px){
 
+    .flists{
+        flex-wrap: wrap;
 
+    }
+
+    .flist{
+        width:50%;
+        margin-top: 20px;
+    }
 
 }
 
 @media screen and (max-width:600px){
 
 
+    
+
+
+    .flists{
+
+        /* flex-direction: column;
+         */
+        flex-wrap: wrap;
+        text-align: center;
+        
+    }
+
+    .flist{
+
+        /* width:100%;
+        margin-bottom: 20px; */
+
+        width:50%;
+        
+
+    }
+    
     
 }
