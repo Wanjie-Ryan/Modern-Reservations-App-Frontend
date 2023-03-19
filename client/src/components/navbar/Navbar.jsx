@@ -21,7 +21,7 @@ function Navbar() {
           
                 <div className="navcontainer">
                   <Link to ='/' style={{color:'inherit', textDecoration:'none'}}>
-                    <span className="logo">Rawa</span> 
+                    <span className="logo">Mystic Travels</span> 
                   </Link>   
 
                     {user ? <span>Welcome, <b>{user.username}</b></span> :
