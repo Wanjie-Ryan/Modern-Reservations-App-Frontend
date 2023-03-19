@@ -101,6 +101,8 @@ function Reserve({setopen, hotelid}) {
 
 
         setmessage('Updated Successfully!')
+
+        console.log(message)
         setopen(false)
 
         setTimeout(()=>{
@@ -205,7 +207,7 @@ function Reserve({setopen, hotelid}) {
                 
 
 
-                {message && <h2 style = {{color:'green', fontSize :'120px'}}>{message}</h2>}
+                {/* {message && <h2 style = {{color:'green', fontSize :'120px'}}>{message}</h2>} */}
 
 
 
