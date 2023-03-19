@@ -8,11 +8,11 @@
 }
 
 .plistitem{
-    flex:1;
+    flex:1 0 calc(33.3% - (20px * 2/3));
     border-radius: 10px;
     overflow: hidden;
     cursor:pointer;
-    width:calc(33.3% - 8px);
+    /* width:calc(33.3% - 8px); */
 
 }
 
@@ -41,14 +41,15 @@
 @media screen and (max-width:1024px){
 
     .plist{
-        max-width: 100%;
+        max-width: 100% !important;
         /* flex-direction:column; */
         align-items: center;
+        /* background-color: red; */
     }
 
     .plistitem{
 
-        width:calc(50% - 10px);
+        width:calc(50% - 10px) !important;
     }
     
 }
