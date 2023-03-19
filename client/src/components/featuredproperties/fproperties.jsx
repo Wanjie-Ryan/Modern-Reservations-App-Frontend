@@ -5,7 +5,10 @@ import usefetch from '../../hooks/usefetch'
 
 function Fproperties() {
 
-   const {data, loading, error} = usefetch('http://localhost:3001/api/hotels?featured=true')
+  //  const {data, loading, error} = usefetch('http://localhost:3001/api/hotels?featured=true')
+
+   const {data, loading, error} = usefetch('https://mystic-api.onrender.com/hotels?featured=true')
+
 
     // console.log(data)
 
