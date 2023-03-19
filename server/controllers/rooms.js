@@ -174,7 +174,7 @@ const updateroomavailability = async(req, res, next)=>{
     try{
 
         await roommodel.updateOne({'roomnumbers._id': req.params.id},{$push:{'roomnumbers.$.unavailabledates': req.body.dates}})
-        res.status(StatusCodes.OK).json({room})
+        res.status(StatusCodes.OK).json('room has been updated successfully')
 
     }
 
