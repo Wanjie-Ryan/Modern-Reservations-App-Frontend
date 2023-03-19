@@ -86,7 +86,7 @@ function Reserve({setopen, hotelid}) {
 
 
 
-    const handleclick =()=>{
+    const handleclick = async ()=>{
 
 
 
@@ -112,11 +112,19 @@ function Reserve({setopen, hotelid}) {
 
                   <div className="ritem">
 
-                    <div className="rtitle">{item.title}</div>
-                    <div className="rdesc">{item.description}</div>
-                    <div className="rmax">Max People: <b>{item.maxpeople}</b></div>
+                    <div className="info">
 
-                    <div className="rprice">{item.price}</div>
+
+                      <div className="rtitle">{item.title}</div>
+                      <div className="rdesc">{item.description}</div>
+                      <div className="rmax">Max People: <b>{item.maxpeople}</b></div>
+
+                      <div className="rprice">{item.price}</div>
+                    </div>
+
+
+                      <div className="selectedrooms">
+
 
 
                       {item.roomnumbers.map((num)=>(
@@ -130,6 +138,10 @@ function Reserve({setopen, hotelid}) {
 
                         </div>
                       ))}
+
+
+                      </div>
+
 
                   </div>
 
