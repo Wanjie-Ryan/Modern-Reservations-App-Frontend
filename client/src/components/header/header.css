@@ -44,7 +44,7 @@
 
 .headerlistitem.active{
 
-    border:1px solid white;
+    /* border:1px solid white; */
     padding: 10px;
     border-radius: 20px;
 }
@@ -157,6 +157,22 @@
 
 @media screen and (max-width:1024px) {
 
+    .headerlist{
+
+        justify-content: center;
+        /* margin-bottom: 0; */
+    }
     
+}
+
+@media screen and (max-width:600px) {
+
+    .headerlist{
+
+        /* justify-content: flex-start; */
+
+        flex-wrap: wrap;
+    }
+
     
 }
