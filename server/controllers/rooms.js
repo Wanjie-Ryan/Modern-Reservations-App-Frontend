@@ -173,18 +173,7 @@ const updateroomavailability = async(req, res, next)=>{
 
     try{
 
-        const {id:roomID} = req.params
-
-        const room = await roommodel.findByIdAndUpdate({_id:roomID}, req.body, {
-            new:true,
-            runValidators:true
-        })
-
-        if(!room){
-
-            res.status(StatusCodes.NOT_FOUND).json({msg: `Room with the Id ${roomID} cannot be not found`})
-        }
-
+        await roommodel.updateOne({'roomnumbers._id': req.params.id},{$push:{'roomnumbers.$.unavailabledates': req.body.dates}})
         res.status(StatusCodes.OK).json({room})
 
     }
