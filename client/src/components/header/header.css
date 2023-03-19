@@ -162,6 +162,26 @@
         justify-content: center;
         /* margin-bottom: 0; */
     }
+
+    .headertitle{
+
+        text-align: center;
+    }
+
+    .headerdesc{
+
+        text-align: center;
+
+    }
+
+    .headerbtn{
+
+        display: block;
+        /* margin: 0 auto; */
+        margin-left: auto;
+        margin-right: auto;
+
+    }
     
 }
 
