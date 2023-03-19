@@ -100,12 +100,12 @@ function Reserve({setopen, hotelid}) {
         }))
 
 
+        setmessage('Updated Successfully!')
         setopen(false)
 
         setTimeout(()=>{
 
-          // setmessage('')
-          setmessage('Updated Successfully!')
+          setmessage('')
  
 
           navigate('/')
@@ -116,12 +116,12 @@ function Reserve({setopen, hotelid}) {
 
       catch(err){
 
+        setmessage('Failed to Update!')
 
       setTimeout(()=>{
         
-        // setmessage('')
+        setmessage('')
 
-      setmessage('Failed to Update!')
 
       
       }, 3000)
