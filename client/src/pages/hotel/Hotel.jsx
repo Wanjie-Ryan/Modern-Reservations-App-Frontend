@@ -37,7 +37,13 @@ function Hotel() {
 
   const [slideindex, setslideindex] = useState(0)
   const [open, setopen] = useState(false)
-  const {data, loading, error} = usefetch(`http://localhost:3001/api/hotels/find/${id}`)
+
+
+  // const {data, loading, error} = usefetch(`http://localhost:3001/api/hotels/find/${id}`)
+
+
+  const {data, loading, error} = usefetch(`https://mystic-api.onrender.com/hotels/find/${id}`)
+
 
   console.log(data)
 

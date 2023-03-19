@@ -28,7 +28,10 @@ function List() {
   const [maxprice, setmaxprice] = useState(undefined)
 
 
-    const {data, loading, error, refetch} = usefetch(`http://localhost:3001/api/hotels?min=${minprice || 0 }&max=${maxprice || 1000}`)
+    // const {data, loading, error, refetch} = usefetch(`http://localhost:3001/api/hotels?min=${minprice || 0 }&max=${maxprice || 1000}`)
+
+    const {data, loading, error, refetch} = usefetch(`https://mystic-api.onrender.com/hotels?min=${minprice || 0 }&max=${maxprice || 1000}`)
+
 
     // &?city=${destination}
 

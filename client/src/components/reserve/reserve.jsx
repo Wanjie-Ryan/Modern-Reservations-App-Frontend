@@ -12,7 +12,10 @@ function Reserve({setopen, hotelid}) {
     //set open is passed as a prop for the modal opening and closing while id is the id for the specific hotel that has been opened.
 
 
-    const {data, loading, error} = usefetch(`http://localhost:3001/api/hotels/room/${hotelid}`)
+    // const {data, loading, error} = usefetch(`http://localhost:3001/api/hotels/room/${hotelid}`)
+
+    const {data, loading, error} = usefetch(`https://mystic-api.onrender.com/hotels/room/${hotelid}`)
+
 
     console.log(data)
 
@@ -94,7 +97,10 @@ function Reserve({setopen, hotelid}) {
 
         await Promise.all(selectedrooms.map(roomid=>{
 
-          const res = axios.put(`http://localhost:3001/api/rooms/availability/${roomid}`, {dates:alldates})
+          // const res = axios.put(`http://localhost:3001/api/rooms/availability/${roomid}`, {dates:alldates})
+
+          const res = axios.put(`https://mystic-api.onrender.com/rooms/availability/${roomid}`, {dates:alldates})
+
 
           return res.data
         }))

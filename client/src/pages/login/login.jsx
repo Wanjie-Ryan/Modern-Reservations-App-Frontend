@@ -41,7 +41,10 @@ function Login() {
 
         try{
 
-            const res = await axios.post('http://localhost:3001/api/auth/login', credentials)
+            // const res = await axios.post('http://localhost:3001/api/auth/login', credentials)
+
+            const res = await axios.post('https://mystic-api.onrender.com/auth/login', credentials)
+
 
             dispatch({type:'loginsuccess', payload:res.data})
 
