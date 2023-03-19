@@ -4,6 +4,7 @@
     display:flex;
     justify-content: space-between;
     gap:20px;
+    flex-wrap: wrap;
 }
 
 .plistitem{
@@ -11,6 +12,7 @@
     border-radius: 10px;
     overflow: hidden;
     cursor:pointer;
+    width:calc(33.3% - 8px);
 
 }
 
@@ -33,4 +35,35 @@
 
     font-size: 14px;
     font-weight: 300;
+}
+
+
+@media screen and (max-width:1024px){
+
+    .plist{
+        max-width: 100%;
+        /* flex-direction:column; */
+        align-items: center;
+    }
+
+    .plistitem{
+
+        width:calc(50% - 10px);
+    }
+    
+}
+
+@media screen and (max-width:600px){
+
+    .plist{
+
+        flex-direction: column;
+    }
+
+    .plistitem{
+
+        width:80%;
+        
+    }
+    
 }
