@@ -92,9 +92,11 @@ function Reserve({setopen, hotelid}) {
 
         await Promise.all(selectedrooms.map(roomid=>{
 
-          const res = axios.put('')
+          const res = axios.put(`http://localhost:3001/api/rooms/availability/${roomid}`, {dates:alldates})
 
+          return res.data
         }))
+
 
 
         
