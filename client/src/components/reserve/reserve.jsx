@@ -5,7 +5,7 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import usefetch from '../../hooks/usefetch'
 import { Searchcontext } from '../../context/searchcontext'
 import axios from 'axios'
-
+import {useNavigate} from 'react-router-dom' 
 
 function Reserve({setopen, hotelid}) {
 
@@ -84,7 +84,9 @@ function Reserve({setopen, hotelid}) {
     }
 
 
+    const navigate = useNavigate()
 
+    const [message, setmessage] = useState('')
 
     const handleclick = async ()=>{
 
@@ -98,14 +100,31 @@ function Reserve({setopen, hotelid}) {
         }))
 
 
+        setopen(false)
 
-        
+        setTimeout(()=>{
+
+          // setmessage('')
+          setmessage('Updated Successfully!')
+ 
+
+          navigate('/')
+        }, 3000)
 
 
       }
 
       catch(err){
 
+
+      setTimeout(()=>{
+        
+        // setmessage('')
+
+      setmessage('Failed to Update!')
+
+      
+      }, 3000)
 
       }
 
@@ -169,9 +188,24 @@ function Reserve({setopen, hotelid}) {
                 ))}
 
 
+                
+
                 <button  onClick = {handleclick} className="rbtn"> Reserve now!</button>
 
 
+
+                {/* This code is using a logical AND operator to conditionally render an HTML element. */}
+
+                    {/* The first part of the expression, message, is a boolean value that checks whether message is truthy or falsy. If message is falsy (e.g. an empty string), then the expression will evaluate to false and nothing will be rendered. */}
+
+                    {/* On the other hand, if message is truthy (e.g. a non-empty string), then the expression will evaluate to true and the second part of the expression, <h2>{message}</h2>, will be rendered. */}
+
+                    {/* So in short, this code is checking if message is truthy and if so, it renders an h2 element with the contents of message. */}
+
+                
+
+
+                {message && <h2 style = {{color:'green', fontSize :'120px'}}>{message}</h2>}
 
 
 
