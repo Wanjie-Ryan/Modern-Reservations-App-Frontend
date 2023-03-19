@@ -77,7 +77,7 @@ function Footer() {
 
             </div>
 
-            <div className="ftext">Copyright &#169; {new Date().getFullYear()} Rawa.</div>
+            <div className="ftext">Copyright &#169; {new Date().getFullYear()} Mystic Travels.</div>
 
         </div>
     
