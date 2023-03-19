@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import usefetch from '../../hooks/usefetch'
 import { Searchcontext } from '../../context/searchcontext'
-
+import axios from 'axios'
 
 
 function Reserve({setopen, hotelid}) {
@@ -87,6 +87,25 @@ function Reserve({setopen, hotelid}) {
 
 
     const handleclick = async ()=>{
+
+      try{
+
+        await Promise.all(selectedrooms.map(roomid=>{
+
+          const res = axios.put('')
+
+        }))
+
+
+        
+
+
+      }
+
+      catch(err){
+
+
+      }
 
 
 
