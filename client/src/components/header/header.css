@@ -182,6 +182,13 @@
         margin-right: auto;
 
     }
+
+    .headersearchitem{ 
+
+        max-width: 100%;
+    }
+
+    
     
 }
 
@@ -193,6 +200,22 @@
 
         flex-wrap: wrap;
     }
+
+    .headersearchitem{ 
+
+        max-width: 100%;
+    }
+
+    .headersearchtext{
+
+        max-width: 100%;
+        /* width:max-content; */
+        overflow: hidden;
+    }
+
+    .headersearchinput {
+        max-width: 100%;
+      }
 
     
 }
