@@ -30,24 +30,24 @@ function Reg() {
             <p className='reg-p'>Register to Mystic Travels</p>
 
                 <div className="inner">
-                    <label>Username:</label>
+                    <label className='lbls'>Username:</label>
                     <input type="text" placeholder = 'username' id = 'username' className="reg" />
                 </div>
 
 
                 <div className="inner">
-                    <label>Email:</label>
+                    <label className='lbls'>Email:</label>
                     <input type="email" placeholder = 'email' id = 'email' className="reg" />
                 </div>
 
                 <div className="inner">
-                    <label>Password:</label>
+                    <label className='lbls'>Password:</label>
                     <input type="password" placeholder = 'password' id = 'password' className="reg" />
                 </div>
 
 
                 <div className="inner">
-                    <label>Admin:</label>
+                    <label className='lbls'>Admin:</label>
                     <input type="checkbox" id = 'checkbox' className="reg" />
                 </div>
 
