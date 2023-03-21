@@ -72,7 +72,7 @@ export const RegContextProvider = ({children})=>{
     return(
 
 
-        <RegContext.Provider value = {{user:state.user, loading:state.loading, error:state.error, dispatch}}>
+        <RegContext.Provider value = {{users:state.user, load:state.loading, errors:state.error, dispatch}}>
 
 
             {children}

@@ -18,7 +18,7 @@ function Reg() {
 
     })
 
-    const [user, loading, error, dispatch] = useContext(RegContext)
+    const [users, load, errors, dispatch] = useContext(RegContext)
 
     const navigate = useNavigate()
 
@@ -40,8 +40,12 @@ function Reg() {
 
         try{
 
-            const register = axios.post('http://localhost:3001/api/auth/register')
+            const register = axios.post('http://localhost:3001/api/auth/register', details)
 
+            dispatch({type:'regcomplete', payload:register.data})
+
+
+            navigate('/')
 
 
         }
@@ -98,7 +102,10 @@ function Reg() {
 
 
                 
-                <button className="btn" onClick ={submit}>Register</button>
+                <button className="btn" disabled = {load} onClick ={submit}>Register</button>
+
+                {errors && <span className='error'>{errors.message}</span>}
+
 
 
 
