@@ -59,11 +59,24 @@ export const RegContextProvider = ({children})=>{
 
     useEffect(()=>{
 
-        
+        localStorage.setItem('user', JSON.stringify(state.user))
 
 
 
-    })
+    },[state.user])
+
+    return(
+
+
+        <RegContext.Provider value = {{user:state.user, loading:state.loading, error:state.error, dispatch}}>
+
+
+            {children}
+
+
+
+        </RegContext.Provider>
+    )
 
 
         
