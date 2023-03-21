@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './reg.css'
 
 
 
@@ -24,9 +24,10 @@ function Reg() {
         <div className="mainreg">
 
 
-            <label>Register to Mystic Travels</label>
 
             <div className="inner-reg">
+
+            <p className='reg-p'>Register to Mystic Travels</p>
 
                 <div className="inner">
                     <label>Username:</label>
