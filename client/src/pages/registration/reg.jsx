@@ -18,7 +18,13 @@ function Reg() {
 
     })
 
-    const [users, load, errors, dispatch] = useContext(RegContext)
+    const {users, load, errors, dispatch} = useContext(RegContext)
+
+    // console.log(users)
+    // console.log(load)
+
+    // console.log(errors)
+
 
     const navigate = useNavigate()
 
@@ -40,19 +46,22 @@ function Reg() {
 
         try{
 
-            const register = axios.post('http://localhost:3001/api/auth/register', details)
+            const register = await axios.post('http://localhost:3001/api/auth/register', details)
 
             dispatch({type:'regcomplete', payload:register.data})
 
 
             navigate('/')
 
+            console.log(register)
+
+            
 
         }
 
         catch(err){
 
-            dispatch({type:'regfail', payload:err.response.data})
+            dispatch({type:'regfail', payload:err.register.data})
         }
 
 
