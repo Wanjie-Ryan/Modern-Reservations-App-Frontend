@@ -23,18 +23,37 @@ function Reg() {
     const navigate = useNavigate()
 
 
-    const handleChange = ()=>{
+    const handleChange = (e)=>{
 
+
+        setdetails((prev)=>({...prev, [e.target.id]:e.target.value}))
 
 
     }
 
 
-    const submit = ()=>{
+    const submit = async(e)=>{
+
+        e.preventDefault()
+
+        dispatch({type:'regstart'})
+
+        try{
+
+            const register = axios.post('http://localhost:3001/api/auth/register')
 
 
 
-        
+        }
+
+        catch(err){
+
+            dispatch({type:'regfail', payload:err.response.data})
+        }
+
+
+
+
     }
 
 
