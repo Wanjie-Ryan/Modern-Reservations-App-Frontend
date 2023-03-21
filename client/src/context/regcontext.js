@@ -22,9 +22,49 @@ const regReducer = (state, action)=>{
             loading:true,
             error:null
         }
+
+        case 'regcomplete':
+
+        return{
+
+            user:action.payload,
+            loading:false,
+            error:null
+        }
+
+        case 'regfail':
+
+        return{
+
+            user:null,
+            loading:false,
+            error:action.payload
+        }
+
+        default:
+            return state
+        
+            
     }
 
 
+    
+}
 
 
+export const RegContextProvider = ({children})=>{
+
+    const [state, dispatch ]= useReducer( regReducer, initialstate)
+
+
+    useEffect(()=>{
+
+        
+
+
+
+    })
+
+
+        
 }
