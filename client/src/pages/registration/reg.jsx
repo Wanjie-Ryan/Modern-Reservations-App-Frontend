@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
 import './reg.css'
 import {RegContext} from '../../context/regcontext'
 import { useNavigate } from 'react-router-dom'
@@ -9,6 +9,14 @@ import axios from 'axios'
 function Reg() {
 
 
+    const [details, setdetails] = useState({
+
+        username:undefined,
+        email:undefined,
+        password:undefined,
+        admin:undefined
+
+    })
 
 
 
@@ -47,7 +55,7 @@ function Reg() {
 
                 <div className="inner">
                     <label className='lbls'>Admin:</label>
-                    <input type="checkbox" id = 'checkbox' className="reg" />
+                    <input type="checkbox" id = 'admin' className="reg" />
                 </div>
 
 
