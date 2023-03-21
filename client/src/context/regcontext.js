@@ -3,6 +3,10 @@ import React, {useEffect, createContext, useReducer} from 'react';
 
 const initialstate = {
 
+    user:JSON.parse(localStorage.getItem('user')) || null,
+    loading:false,
+    error:null
+
 
 }
 

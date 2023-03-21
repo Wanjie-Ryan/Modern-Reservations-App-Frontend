@@ -3,21 +3,26 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import {SearchcontextProvider} from './context/searchcontext'
 import { AuthcontextProvider } from './context/authcontext';
+import { RegContextProvider } from './context/regcontext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-    <AuthcontextProvider>
 
-      <SearchcontextProvider>
+      <RegContextProvider>
 
-        <App />
+        <AuthcontextProvider>
 
-      </SearchcontextProvider>
+              <SearchcontextProvider>
 
-    </AuthcontextProvider>
+                    <App />
 
+              </SearchcontextProvider>
+
+        </AuthcontextProvider>
+
+      </RegContextProvider>
 
   </React.StrictMode>
 );
