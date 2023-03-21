@@ -18,6 +18,25 @@ function Reg() {
 
     })
 
+    const [user, loading, error, dispatch] = useContext(RegContext)
+
+    const navigate = useNavigate()
+
+
+    const handleChange = ()=>{
+
+
+
+    }
+
+
+    const submit = ()=>{
+
+
+
+        
+    }
+
 
 
 
@@ -38,18 +57,18 @@ function Reg() {
 
                 <div className="inner">
                     <label className='lbls'>Username:</label>
-                    <input type="text" placeholder = 'username' id = 'username' className="reg" />
+                    <input type="text" placeholder = 'username' id = 'username' className="reg" onChange={handleChange} />
                 </div>
 
 
                 <div className="inner">
                     <label className='lbls'>Email:</label>
-                    <input type="email" placeholder = 'email' id = 'email' className="reg" />
+                    <input type="email" placeholder = 'email' onChange={handleChange} id = 'email' className="reg" />
                 </div>
 
                 <div className="inner">
                     <label className='lbls'>Password:</label>
-                    <input type="password" placeholder = 'password' id = 'password' className="reg" />
+                    <input type="password" onChange={handleChange}placeholder = 'password' id = 'password' className="reg" />
                 </div>
 
 
@@ -60,7 +79,7 @@ function Reg() {
 
 
                 
-                <button className="btn">Register</button>
+                <button className="btn" onClick ={submit}>Register</button>
 
 
 
