@@ -1,9 +1,8 @@
 import React from 'react'
 import './reg.css'
-
-
-
-
+import {RegContext} from '../../context/regcontext'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 
 
