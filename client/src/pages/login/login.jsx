@@ -49,6 +49,8 @@ function Login() {
             dispatch({type:'loginsuccess', payload:res.data})
 
             navigate('/')
+
+            // console.log(res)
         }
 
         catch(err){

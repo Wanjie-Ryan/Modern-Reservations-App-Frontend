@@ -2,19 +2,18 @@ import React, {useContext} from 'react'
 import './navbar.css'
 import {Link} from 'react-router-dom';
 import { Authcontext } from '../../context/authcontext';
+import { RegContext } from '../../context/regcontext';
 
 function Navbar() {
 
 
   const {user} = useContext(Authcontext)
 
+  const {users} = useContext(RegContext)
+
   return (
 
     <>
-    
-        
-
-          
           
           <div className="navbar">
 
@@ -24,7 +23,7 @@ function Navbar() {
                     <span className="logo">Mystic Travels</span> 
                   </Link>   
 
-                    {user ? <span>Welcome, <b>{user.username}</b></span> :
+                    {user || users ? <span>Welcome, <b>{user ? user.username : users ? users.username :''}</b></span> :
 
                       <div className="navitems">
 
