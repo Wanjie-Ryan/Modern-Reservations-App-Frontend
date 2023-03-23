@@ -12,9 +12,9 @@ function Reserve({setopen, hotelid}) {
     //set open is passed as a prop for the modal opening and closing while id is the id for the specific hotel that has been opened.
 
 
-    // const {data, loading, error} = usefetch(`http://localhost:3001/api/hotels/room/${hotelid}`)
+    const {data, loading, error} = usefetch(`http://localhost:3001/api/hotels/room/${hotelid}`)
 
-    const {data, loading, error} = usefetch(`https://mystic-api.onrender.com/hotels/room/${hotelid}`)
+    // const {data, loading, error} = usefetch(`https://mystic-api.onrender.com/hotels/room/${hotelid}`)
 
 
     console.log(data)

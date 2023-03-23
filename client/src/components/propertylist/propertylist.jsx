@@ -6,9 +6,9 @@ import usefetch from '../../hooks/usefetch'
 
 function Propertylist() {
 
-  //  const {data, loading, error} = usefetch('http://localhost:3001/api/hotels/countbytype')
+   const {data, loading, error} = usefetch('http://localhost:3001/api/hotels/countbytype')
 
-   const {data, loading, error} = usefetch('https://mystic-api.onrender.com/hotels/countbytype')
+  //  const {data, loading, error} = usefetch('https://mystic-api.onrender.com/hotels/countbytype')
 
 
    // console.log(data)
