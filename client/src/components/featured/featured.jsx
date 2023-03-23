@@ -8,9 +8,9 @@ function Featured(){
     // const {data, loading, error} = usefetch('hotels/countbycity?cities=Berlin,Madrid,London')
 
 
-    // const {data, loading, error} = usefetch('http://localhost:3001/api/hotels/countbycity?cities=Berlin,Madrid,London')
+    const {data, loading, error} = usefetch('http://localhost:3001/api/hotels/countbycity?cities=Berlin,Madrid,London')
 
-    const {data, loading, error} = usefetch('https://mystic-api.onrender.com/hotels/countbycity?cities=Berlin,Madrid,London')
+    // const {data, loading, error} = usefetch('https://mystic-api.onrender.com/hotels/countbycity?cities=Berlin,Madrid,London')
 
 
         // console.log(data)
