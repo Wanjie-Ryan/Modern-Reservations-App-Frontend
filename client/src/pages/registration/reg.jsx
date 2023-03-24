@@ -38,6 +38,11 @@ function Reg() {
     }
 
 
+    const [successmsg, setsuccessmsg] = useState('')
+
+    const [errmsg, seterrmsg] = useState('')
+
+
     const submit = async(e)=>{
 
         e.preventDefault()
@@ -50,8 +55,15 @@ function Reg() {
 
             dispatch({type:'regcomplete', payload:register.data})
 
+            setTimeout(()=>{
 
-            navigate('/')
+                setsuccessmsg(register.data.msg)
+    
+    
+                navigate('/')
+
+            }, 2000)
+
 
             console.log(register)
 
@@ -62,6 +74,12 @@ function Reg() {
         catch(err){
 
             dispatch({type:'regfail', payload:err.register.data})
+
+            setTimeout(()=>{
+
+                seterrmsg(err.register.data.msg)
+
+            },2000)
         }
 
 
@@ -113,7 +131,9 @@ function Reg() {
                 
                 <button className="btn" disabled = {load} onClick ={submit}>Register</button>
 
-                {errors && <span className='error'>{errors.message}</span>}
+                {successmsg && <span className='success'>{successmsg}</span>}
+
+                {errmsg && <span className='error'>{errmsg}</span>}
 
 
 
