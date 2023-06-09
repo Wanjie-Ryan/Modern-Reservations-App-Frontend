@@ -9,6 +9,9 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import {format} from 'date-fns';
 import { Searchcontext } from '../../context/searchcontext';
 import { Authcontext } from '../../context/authcontext';
+import {Link} from 'react-router-dom'
+
+
 
 
 //transforms the date function into readable strings
@@ -143,7 +146,7 @@ function Header({type}) {
                 {
                     !user &&
 
-                    <button className="headerbtn">Sign In / Register</button>
+                    <Link to = '/register'><button className="headerbtn">Register</button></Link>
                 }
 
                 <div className="headersearch">

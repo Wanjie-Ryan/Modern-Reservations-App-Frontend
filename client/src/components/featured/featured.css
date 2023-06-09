@@ -17,6 +17,7 @@
     overflow: hidden;
     height:250px;
     width:calc(33.33% - 6.67px); 
+    cursor: pointer;
     
     /* width will only fit 3 images per row */
 
