@@ -11,6 +11,24 @@ function Navbar() {
 
   const {users} = useContext(RegContext)
 
+
+  const getUsername = ()=>{
+
+    if (user) {
+      return user.username;
+
+    } else if (users) {
+
+      return users.username;
+
+    } else {
+
+      return 'User';
+
+    }
+
+  }
+
   return (
 
     <>
@@ -23,7 +41,7 @@ function Navbar() {
                     <span className="logo">Mystic Travels</span> 
                   </Link>   
 
-                    {user || users ? <span>Welcome, <b>{user ? user.username : users ? users.username :''}</b></span> :
+                    {user || users ? <span>Welcome, <b>{getUsername()}</b></span> :
 
                       <div className="navitems">
 
