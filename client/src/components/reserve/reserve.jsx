@@ -6,6 +6,9 @@ import usefetch from '../../hooks/usefetch'
 import { Searchcontext } from '../../context/searchcontext'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom' 
+import swal from 'sweetalert';
+
+
 
 function Reserve({setopen, hotelid}) {
 
@@ -106,25 +109,31 @@ function Reserve({setopen, hotelid}) {
         }))
 
 
-        setmessage('Updated Successfully!')
+        // setmessage('Updated Successfully!')
 
         console.log(message)
+
+        swal("Room Reserved", "Room successfully reserved!", "success")
+
+        .then(() =>{
         setopen(false)
 
-        setTimeout(()=>{
+        // setTimeout(()=>{
 
-          setmessage('')
+        //   setmessage('')
  
-
-          navigate('/')
-        }, 3000)
+        //   navigate('/')
+      })
 
 
       }
 
       catch(err){
 
+        swal("Failed to Reserve", "Failed to reserve the room!", "error")
         setmessage('Failed to Update!')
+
+
 
       setTimeout(()=>{
         

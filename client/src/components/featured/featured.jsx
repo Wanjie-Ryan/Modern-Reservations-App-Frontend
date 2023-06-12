@@ -29,12 +29,13 @@ function Featured(){
                 
 
                     <div className="featureditem">
+
                         <img src="https://cf.bstatic.com/xdata/images/city/max500/957801.webp?k=a969e39bcd40cdcc21786ba92826063e3cb09bf307bcfeac2aa392b838e9b7a5&o=" alt="Dublin" className="featuredimg" />
 
 
                         <div className="featuredtitles">
 
-                            <h1>Berlin</h1>
+                            <h1>Tour Natural Green Forests</h1>
                             <h2>{data[0]}</h2>
 
                         </div>
@@ -47,7 +48,7 @@ function Featured(){
 
 
                         <div className="featuredtitles">
-                            <h1>Madrid</h1>
+                            <h1>Tour Cities</h1>
                             <h2>{data[1]}</h2>
                         </div>
 
@@ -60,7 +61,7 @@ function Featured(){
 
                         <div className="featuredtitles">
 
-                            <h1>London</h1>
+                            <h1>Tour & Hike Mountains</h1>
                             <h2>{data[2]}</h2>
                             
                         </div>
