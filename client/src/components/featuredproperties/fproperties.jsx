@@ -2,7 +2,7 @@ import React from 'react'
 import './fproperties.css'
 import usefetch from '../../hooks/usefetch'
 import des1 from '../../Images/destination1.jpg'
-
+import { FaSpinner } from 'react-icons/fa';
 
 
 
@@ -23,7 +23,10 @@ function Fproperties() {
 
             <div className="fp">
     
-               {loading ? <h2>Loading, Please Wait..</h2> :<>
+               {loading ? <div className="loading">
+                <FaSpinner className="spinner" />
+                <p>Loading...</p>
+                </div> :<>
 
 
                {data.map((item)=>(
@@ -50,8 +53,6 @@ function Fproperties() {
                 </div>))}
 
                 </>}
-
-
 
                 
             </div>
