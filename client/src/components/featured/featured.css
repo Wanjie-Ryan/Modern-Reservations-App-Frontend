@@ -38,6 +38,13 @@
     left:20px;
 }
 
+.featuredtitles h1{
+
+    font-size: 24px; 
+    color: white;  
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 @media screen and (max-width:1024px) {
 
     .featured{

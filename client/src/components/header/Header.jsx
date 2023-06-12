@@ -141,7 +141,7 @@ function Header({type}) {
                <>
                <h1 className="headertitle">A lifetime of discounts? It's Genius</h1>
 
-                <p className="headerdesc">Get rewarded for your travels - unlock instant savings of 10% or more with a free Rawa account</p>
+                <p className="headerdesc">Get rewarded for your travels - unlock instant savings of 10% or more with a free Mystic Travels account</p>
 
                 {
                     !user &&
